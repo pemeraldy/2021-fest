@@ -1,10 +1,17 @@
 <template>
   <v-container>
     <div class="mt-16 content-wrap">
-      <div class="d-inline callout-heading">
-        <span class="swashed">5 days </span> of encountering God like never
-        before.
-      </div>
+      <h1 class="d-inline callout-heading">
+        <span class="swashed mr-1 d-inline-block"
+          >5 days
+          <img
+            class="swash-img d-block"
+            src="~/assets/imgs/line-swash.svg"
+            alt=""
+          />
+        </span>
+        of encountering God like never before.
+      </h1>
       <div class="d-inline">Click <a href="#">here</a> to see schedule</div>
     </div>
   </v-container>
@@ -26,8 +33,15 @@ export default {}
     text-align: left;
   }
   .swashed {
-    // font-weight: 900;
+    font-weight: 600;
+    position: relative;
+    // background: url('~/assets/imgs/line-swash.svg') no-repeat;
     // font-size: 200px;
+  }
+  .swash-img {
+    position: absolute;
+    left: 0;
+    bottom: -3px;
   }
 }
 </style>
