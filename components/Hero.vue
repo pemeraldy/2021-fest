@@ -1,11 +1,16 @@
 <template>
-  <div class="hero d-flex flex-column align-center justify-center">
-    <h1>Petra Festival</h1>
+  <div class="hero d-flex flex-column pb-11 align-center">
+    <h1 class="mt-10">Petra Festival</h1>
     <h1>Convention 2021</h1>
-    <p>
+    <p class="text-center pa-5">
       Diam ultrices eu donec tristique ut faucibus amet adipiscing eget. Porta
       pellentesque id condimentum eget at.
     </p>
+    <div class="btn-wrap">
+      <v-btn height="64" class="register-btn" color="#580045" dark width="343"
+        >Register</v-btn
+      >
+    </div>
   </div>
 </template>
 
@@ -16,11 +21,20 @@ export default {}
 <style scoped>
 .hero {
   width: 100%;
-  background: orange;
+  background: #9b9b9b;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.register-btn {
+  text-transform: capitalize;
+  border-radius: 100px;
 }
 @media screen and (max-width: 440px) {
   .hero {
-    height: 344px;
+    min-height: 344px;
+  }
+  .btn-wrap {
+    width: 343px;
   }
 }
 </style>
