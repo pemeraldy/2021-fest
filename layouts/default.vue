@@ -3,7 +3,7 @@
     <div>
       <v-app-bar color="white">
         <v-avatar>
-          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+          <img src="~/assets/imgs/petra-logo.png" alt="Petra" />
         </v-avatar>
 
         <v-spacer></v-spacer>
