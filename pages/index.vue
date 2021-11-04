@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12">
-      <h1>Hi</h1>
-    </v-col>
+    <Hero />
+    <MainContent />
   </v-row>
 </template>
+<style scoped></style>

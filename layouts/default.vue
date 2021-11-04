@@ -2,25 +2,40 @@
   <v-app>
     <div>
       <v-app-bar color="white">
-        <v-avatar>
-          <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+        <v-avatar v-if="!navOpen">
+          <img src="~/assets/imgs/petra-logo.png" alt="Petra" />
         </v-avatar>
+
+        <v-scroll-y-transition>
+          <v-avatar v-if="navOpen">
+            <img src="~/assets/imgs/logo-nav-open.png" alt="Petra" />
+          </v-avatar>
+        </v-scroll-y-transition>
 
         <v-spacer></v-spacer>
 
-        <v-app-bar-nav-icon color="black"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon color="black" @click="navOpen = !navOpen">
+          <v-icon v-if="navOpen">mdi-close</v-icon>
+        </v-app-bar-nav-icon>
       </v-app-bar>
     </div>
-
+    <div class="custom-drawe__placeholder">
+      <v-expand-transition>
+        <CustomDrawer v-if="navOpen" />
+      </v-expand-transition>
+    </div>
     <v-main>
-      <v-container>
+      <v-container fluid>
         <Nuxt />
       </v-container>
     </v-main>
 
-    <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <!-- <v-footer app> -->
+    <div class="mt-10">
+      <AppFooter />
+    </div>
+    <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
+    <!-- </v-footer> -->
   </v-app>
 </template>
 
@@ -29,25 +44,18 @@ export default {
   data() {
     return {
       clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
+      navOpen: false,
+
       title: 'Petra',
     }
   },
 }
 </script>
+<style lang="scss" scoped>
+body {
+  // background-color: #ebebed;
+}
+.custom-drawe__placeholder {
+  position: relative;
+}
+</style>
