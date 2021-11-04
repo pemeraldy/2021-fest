@@ -48,5 +48,6 @@ export default {}
 .nuxt-link-active {
   text-decoration: none;
   color: white;
+  font-size: 14px;
 }
 </style>

@@ -8,10 +8,14 @@
 
         <v-spacer></v-spacer>
 
-        <v-app-bar-nav-icon color="black"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon @click="navOpen = !navOpen" color="black">
+          <v-icon v-if="navOpen">mdi-close</v-icon>
+        </v-app-bar-nav-icon>
       </v-app-bar>
     </div>
-
+    <div class="custom-drawe__placeholder">
+      <CustomDrawer v-if="navOpen" />
+    </div>
     <v-main>
       <v-container fluid>
         <Nuxt />
@@ -32,7 +36,7 @@ export default {
   data() {
     return {
       clipped: false,
-      drawer: false,
+      navOpen: false,
 
       title: 'Petra',
     }
@@ -42,5 +46,8 @@ export default {
 <style lang="scss" scoped>
 body {
   // background-color: #ebebed;
+}
+.custom-drawe__placeholder {
+  position: relative;
 }
 </style>
