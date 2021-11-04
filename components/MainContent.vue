@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="content-container">
     <div class="mt-16 content-wrap">
       <h1 class="d-inline callout-heading">
         <span class="swashed mr-1 d-inline-block"
@@ -14,6 +14,20 @@
       </h1>
       <div class="d-inline">Click <a href="#">here</a> to see schedule</div>
     </div>
+    <v-sheet class="mt-11 d-flex justify-center">
+      <v-sheet
+        min-width="343"
+        min-height="248"
+        class="vid-wrap d-flex justify-center align-center"
+      >
+        <div>
+          <img src="~/assets/imgs/play-icon.svg" alt="play button" />
+        </div>
+      </v-sheet>
+    </v-sheet>
+    <v-sheet class="mt-11">
+      <Ministers />
+    </v-sheet>
   </v-container>
 </template>
 
@@ -22,6 +36,10 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
+// .content-container {
+//   background: url('~/assets/imgs/content-bg.png') no-repeat;
+//   background-size: cover;
+// }
 .callout-heading {
   @media screen and (max-width: 440px) {
     // font-family: Lato;
@@ -42,6 +60,17 @@ export default {}
     position: absolute;
     left: 0;
     bottom: -3px;
+  }
+}
+.vid-wrap {
+  // background: url('~/assets/imgs/vid-img.png') no-repeat;
+  // background-size: cover;
+  // height: 400px;
+  @media screen and (max-width: 440px) {
+    width: 343px;
+    height: 248px;
+    background: url('~/assets/imgs/vid-img.png') no-repeat;
+    background-size: cover;
   }
 }
 </style>

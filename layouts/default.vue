@@ -18,9 +18,12 @@
       </v-container>
     </v-main>
 
-    <!-- <v-footer app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer> -->
+    <!-- <v-footer app> -->
+    <div class="mt-10">
+      <AppFooter />
+    </div>
+    <!-- <span>&copy; {{ new Date().getFullYear() }}</span> -->
+    <!-- </v-footer> -->
   </v-app>
 </template>
 
@@ -36,3 +39,8 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+body {
+  // background-color: #ebebed;
+}
+</style>
