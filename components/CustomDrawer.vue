@@ -12,13 +12,6 @@
           <span v-if="currentLink === index" class="nav-active"></span>
           {{ link }}</nuxt-link
         >
-        <!-- <nuxt-link class="my-3" to="/">Schedule</nuxt-link>
-        <nuxt-link class="my-3" to="/">FAQ</nuxt-link>
-        <nuxt-link class="my-3" to="/">Invite Someone</nuxt-link>
-        <nuxt-link class="my-3" to="/">Media</nuxt-link>
-        <nuxt-link class="my-3" to="/">Ministers</nuxt-link>
-        <nuxt-link class="my-3" to="/">Testimonies</nuxt-link>
-        <nuxt-link class="my-3" to="/">Login</nuxt-link> -->
       </div>
     </div>
   </div>
@@ -50,6 +43,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 83vh;
+  background: url('~/assets/imgs/nav-bg.png');
   background-color: #580045;
   z-index: 1000000000;
   border-radius: 16px;
