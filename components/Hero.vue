@@ -1,6 +1,7 @@
 <template>
   <div class="d-flex flex-column">
-    <div class="hero d-flex flex-column align-center">
+    <div :style="inlineStyle" class="hero d-flex flex-column align-center">
+      <slot />
       <!-- <h1 class="mt-10">Petra Festival</h1>
       <h1>Convention 2021</h1>
       <p class="text-center pa-5">
@@ -16,14 +17,32 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    // eslint-disable-next-line vue/require-default-prop
+    backgroundImage: {
+      type: String,
+      default: 'hero-bg-lg.png',
+    },
+  },
+  computed: {
+    bgImage() {
+      return require('@/assets/imgs/' + this.backgroundImage)
+    },
+    inlineStyle() {
+      return {
+        backgroundImage: `url(${this.bgImage})`,
+      }
+    },
+  },
+}
 </script>
 
 <style scoped>
 .hero {
   width: 100%;
   border-bottom-left-radius: 80px;
-  background: url('~/assets/imgs/hero-bg-lg.png') no-repeat;
+  /* background: url('~/assets/imgs/hero-bg-lg.png') no-repeat; */
   background-size: cover;
 }
 .register-btn {
