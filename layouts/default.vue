@@ -2,14 +2,16 @@
   <v-app>
     <div>
       <v-app-bar color="white">
-        <v-avatar v-if="!navOpen">
-          <img
-            width="40"
-            height="40"
-            src="~/assets/imgs/petra-logo-bright.png"
-            alt="Petra"
-          />
-        </v-avatar>
+        <nuxt-link to="/">
+          <v-avatar v-if="!navOpen">
+            <img
+              width="40"
+              height="40"
+              src="~/assets/imgs/petra-logo-bright.png"
+              alt="Petra"
+            />
+          </v-avatar>
+        </nuxt-link>
 
         <v-scroll-y-transition>
           <v-avatar v-if="navOpen">
