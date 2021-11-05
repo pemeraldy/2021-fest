@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn :height="height" class="theme-btn" :width="width" dark>{{
+    <v-btn :to="link" :height="height" class="theme-btn" :width="width" dark>{{
       text
     }}</v-btn>
   </div>
@@ -13,6 +13,10 @@ export default {
     text: {
       type: String,
       default: 'Button',
+    },
+    link: {
+      type: String,
+      default: '',
     },
     width: {
       type: String,
