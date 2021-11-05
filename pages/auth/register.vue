@@ -59,6 +59,57 @@
                   type="email"
                 />
               </div>
+
+              <v-radio-group>
+                <p>Are you new to Petra?</p>
+                <v-radio label="Yes" value="nes"></v-radio>
+                <v-radio label="No" value="no"></v-radio>
+              </v-radio-group>
+              <v-radio-group>
+                <p>Will you be attending in person?</p>
+                <v-radio label="In-person" value="yes"></v-radio>
+                <v-radio label="online" value="no"></v-radio>
+              </v-radio-group>
+
+              <div class="input-group mt-2">
+                <label for="email">Where do you live?</label>
+                <input
+                  id="email"
+                  required
+                  class="mt-2"
+                  name="email"
+                  type="email"
+                  placeholder="Example Maitama, Abuja"
+                />
+              </div>
+
+              <v-radio-group>
+                <p>How did you hear about the festival convention?</p>
+                <v-radio label="In Petra" value="petra"></v-radio>
+                <v-radio label="Social media" value="media"></v-radio>
+                <v-radio label="Word of mouth" value="word"></v-radio>
+                <v-radio label="Others" value="other"></v-radio>
+              </v-radio-group>
+
+              <div class="input-group mt-2">
+                <label for="numOfPeople"
+                  >How many people will be attending with you?</label
+                >
+                <input
+                  id="numOfPeople"
+                  required
+                  class="mt-2"
+                  name="num of people"
+                  type="number"
+                />
+              </div>
+              <div class="mt-5 d-flex flex-column align-center justif-center">
+                <BaseBtn text="Register" width="305" />
+                <p class="mt-2">
+                  Have an account already ?
+                  <nuxt-link to="/auth/login">Login</nuxt-link>
+                </p>
+              </div>
             </v-col>
           </v-row>
         </v-container>

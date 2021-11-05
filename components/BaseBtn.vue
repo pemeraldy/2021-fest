@@ -1,6 +1,8 @@
 <template>
   <div>
-    <v-btn height="64" class="theme-btn" dark width="343">{{ text }}</v-btn>
+    <v-btn :height="height" class="theme-btn" :width="width" dark>{{
+      text
+    }}</v-btn>
   </div>
 </template>
 
@@ -12,12 +14,21 @@ export default {
       type: String,
       default: 'Button',
     },
+    width: {
+      type: String,
+      default: '343',
+    },
+    height: {
+      type: String,
+      default: '64',
+    },
   },
 }
 </script>
 
 <style scoped>
 .theme-btn {
+  width: 100%;
   background: linear-gradient(
     121deg,
     #f29822 13.56%,
