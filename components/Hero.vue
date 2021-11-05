@@ -1,7 +1,9 @@
 <template>
   <div class="d-flex flex-column">
-    <div :style="inlineStyle" class="hero d-flex flex-column align-center">
-      <slot />
+    <div class="hero-container" :style="inlineStyle">
+      <slot>
+        <div class="hero d-flex flex-column align-center"></div>
+      </slot>
       <!-- <h1 class="mt-10">Petra Festival</h1>
       <h1>Convention 2021</h1>
       <p class="text-center pa-5">
@@ -9,10 +11,7 @@
         pellentesque id condimentum eget at.
       </p> -->
     </div>
-    <div class="btn-wrap mt-6 d-flex justify-center">
-      <!-- <v-btn height="64" class="register-btn" dark width="343">Register</v-btn> -->
-      <BaseBtn text="Register" />
-    </div>
+    <slot name="heroActions"> </slot>
   </div>
 </template>
 
@@ -39,9 +38,8 @@ export default {
 </script>
 
 <style scoped>
-.hero {
+.hero-container {
   width: 100%;
-  border-bottom-left-radius: 80px;
   /* background: url('~/assets/imgs/hero-bg-lg.png') no-repeat; */
   background-size: cover;
 }
@@ -59,6 +57,7 @@ export default {
 @media screen and (max-width: 440px) {
   .hero {
     min-height: 265px;
+    border-bottom-left-radius: 80px;
   }
   .btn-wrap {
     width: 100%;
