@@ -67,9 +67,7 @@
     </div>
     <div class="mt-10">
       <div class="btn-wrap">
-        <v-btn height="64" class="register-btn" color="#580045" dark width="343"
-          >Register</v-btn
-        >
+        <BaseBtn text="Register" />
       </div>
     </div>
   </div>
@@ -89,7 +87,7 @@ export default {}
     width: 100%;
   }
   .minister-name {
-    background-color: #580045;
+    background: #f26643;
     position: absolute;
     bottom: 0;
     @media screen and (max-width: 440px) {

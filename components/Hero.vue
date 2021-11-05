@@ -9,7 +9,8 @@
       </p> -->
     </div>
     <div class="btn-wrap mt-6 d-flex justify-center">
-      <v-btn height="64" class="register-btn" dark width="343">Register</v-btn>
+      <!-- <v-btn height="64" class="register-btn" dark width="343">Register</v-btn> -->
+      <BaseBtn text="Register" />
     </div>
   </div>
 </template>
