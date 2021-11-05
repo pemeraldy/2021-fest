@@ -3,12 +3,22 @@
     <div>
       <v-app-bar color="white">
         <v-avatar v-if="!navOpen">
-          <img src="~/assets/imgs/petra-logo.png" alt="Petra" />
+          <img
+            width="40"
+            height="40"
+            src="~/assets/imgs/petra-logo-bright.png"
+            alt="Petra"
+          />
         </v-avatar>
 
         <v-scroll-y-transition>
           <v-avatar v-if="navOpen">
-            <img src="~/assets/imgs/logo-nav-open.png" alt="Petra" />
+            <img
+              width="40"
+              height="40"
+              src="~/assets/imgs/logo-nav-open.png"
+              alt="Petra"
+            />
           </v-avatar>
         </v-scroll-y-transition>
 
