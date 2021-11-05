@@ -25,9 +25,9 @@
       </v-expand-transition>
     </div>
     <v-main>
-      <v-container fluid>
-        <Nuxt />
-      </v-container>
+      <!-- <v-container fluid> -->
+      <Nuxt />
+      <!-- </v-container> -->
     </v-main>
 
     <!-- <v-footer app> -->

@@ -1,7 +1,12 @@
 <template>
-  <v-row justify="center" align="center">
+  <div>
     <Hero />
-    <MainContent />
-  </v-row>
+
+    <v-container fluid>
+      <v-row justify="center" align="center">
+        <MainContent />
+      </v-row>
+    </v-container>
+  </div>
 </template>
 <style scoped></style>
