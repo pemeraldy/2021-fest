@@ -55,15 +55,18 @@ export default {}
   width: 95%;
   margin: 0 auto;
   position: absolute;
-  background: white;
+  backdrop-filter: blur(4px) saturate(180%);
+  -webkit-backdrop-filter: blur(4px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.58);
   left: 0;
   right: 0;
   margin-right: auto;
   margin-left: auto;
   height: 90px;
   border-radius: 68px;
-  backdrop-filter: blur(19px);
-  -webkit-backdrop-filter: blur(19px);
+  // backdrop-filter: blur(19px);
+  // -webkit-backdrop-filter: blur(19px);
+  z-index: 1;
 }
 .custom-nav__inner {
   width: 100%;

@@ -2,7 +2,6 @@
   <v-app>
     <AppNavigationBar />
     <div class="hero-section">
-      <img class="hero-bg" src="~/assets/imgs/hero-bg-lg.png" alt="" />
       <div class="hero-inner">
         <h1>Hero Section</h1>
       </div>
@@ -20,16 +19,16 @@ export default {}
 <style scoped>
 .hero-section {
   position: relative;
-  /* background: url('~/assets/imgs/hero-bg-lg.png') no-repeat; */
-  /* background-size: cover; */
-  height: 50vh;
-  /* width: 100%; */
-}
-.hero-section .hero-bg {
+  background: url('~/assets/imgs/hero-bg-lg2.png') no-repeat;
+  background-size: cover;
+  height: 90vh;
   width: 100%;
-  /* object-fit: cover;
+}
+/* .hero-section .hero-bg {
+  width: 100%;
+  object-fit: cover;
   position: absolute;
   top: 0;
-  left: 0; */
-}
+  left: 0;
+} */
 </style>
