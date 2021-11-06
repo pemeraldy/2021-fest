@@ -1,0 +1,77 @@
+<template>
+  <div class="custom-nav d-flex align-center pa-3 mt-12">
+    <nav class="custom-nav__inner d-flex justify-between">
+      <div class="logo-wrap">
+        <nuxt-link to="/">
+          <v-avatar height="60" width="60">
+            <PetraLogoBright width="100" height="100" />
+
+            <!-- <img
+              width="40"
+              height="40"
+              src="~/assets/imgs/petra-logo-bright.svg"
+              alt="Petra"
+            /> -->
+          </v-avatar>
+        </nuxt-link>
+      </div>
+      <v-spacer></v-spacer>
+      <div class="d-flex justify-between align-center pr-10">
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/register"
+          >Register</nuxt-link
+        >
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/register"
+          >Schedule</nuxt-link
+        >
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/register"
+          >Invite someone</nuxt-link
+        >
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/register"
+          >FAQ</nuxt-link
+        >
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/register"
+          >Ministers</nuxt-link
+        >
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/register"
+          >Media</nuxt-link
+        >
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/register"
+          >Testimonies</nuxt-link
+        >
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/register"
+          >Login</nuxt-link
+        >
+      </div>
+    </nav>
+  </div>
+</template>
+
+<script>
+export default {}
+</script>
+
+<style lang="scss" scoped>
+.custom-nav {
+  width: 95%;
+  margin: 0 auto;
+  position: absolute;
+  background: white;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+  height: 90px;
+  border-radius: 68px;
+  backdrop-filter: blur(19px);
+  -webkit-backdrop-filter: blur(19px);
+}
+.custom-nav__inner {
+  width: 100%;
+}
+.custom-nav-item {
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+}
+</style>
