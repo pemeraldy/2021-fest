@@ -57,7 +57,8 @@ export default {}
   position: absolute;
   backdrop-filter: blur(4px) saturate(180%);
   -webkit-backdrop-filter: blur(4px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.58);
+  background-color: rgba(255, 255, 255, 0.82);
+  // background-color: rgba(255, 255, 255, 0.58);
   left: 0;
   right: 0;
   margin-right: auto;
@@ -74,7 +75,7 @@ export default {}
 .custom-nav-item {
   text-decoration: none;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   color: #000;
 }
 </style>
