@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :style="inlineStyle">
     <AppNavigationBar />
     <v-main>
       <Nuxt />
@@ -8,7 +8,25 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    // eslint-disable-next-line vue/require-default-prop
+    backgroundImage: {
+      type: String,
+      default: 'page-bg.png',
+    },
+  },
+  computed: {
+    bgImage() {
+      return require('@/assets/imgs/' + this.backgroundImage)
+    },
+    inlineStyle() {
+      return {
+        backgroundImage: `url(${this.bgImage})`,
+      }
+    },
+  },
+}
 </script>
 
 <style scoped>
