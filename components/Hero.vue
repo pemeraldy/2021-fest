@@ -32,6 +32,10 @@ export default {
       return {
         backgroundImage: `url(${this.bgImage});`,
         height: this.$route.path === '/' ? '293px;' : false,
+        boxShadow:
+          this.$route.path === '/'
+            ? ''
+            : 'inset 2000px 0 0 0 rgba(0, 0, 0, 0.5); border-bottom-left-radius:80px;',
       }
     },
   },
