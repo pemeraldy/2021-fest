@@ -1,6 +1,6 @@
 <template>
   <v-container class="content-container">
-    <div class="mt-16 content-wrap text-md-center">
+    <div class="mt-16 content-wrap text-center text-md-center">
       <h1 class="d-inline text-md-center callout-heading">
         <span class="swashed mr-1 d-inline-block"
           >5 days
@@ -16,14 +16,14 @@
         Click <a href="#">here</a> to see schedule
       </div>
     </div>
-    <v-sheet class="mt-11 d-flex justify-center">
+    <v-sheet color="transparent" class="mt-11 d-flex justify-center">
       <v-sheet class="vid-wrap d-flex justify-center align-center">
         <div>
           <img src="~/assets/imgs/play-icon.svg" alt="play button" />
         </div>
       </v-sheet>
     </v-sheet>
-    <v-sheet class="mt-11">
+    <v-sheet color="transparent" class="mt-11">
       <Ministers />
     </v-sheet>
   </v-container>
@@ -63,7 +63,8 @@ export default {}
 .vid-wrap {
   background: url('~/assets/imgs/vid-img.png') no-repeat;
   background-size: cover;
-  // height: 400px;
+  width: 845px;
+  height: 610px;
   @media screen and (max-width: 440px) {
     width: 343px;
     height: 248px;
