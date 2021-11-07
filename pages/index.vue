@@ -1,12 +1,5 @@
 <template>
   <div>
-    <!-- <Hero>
-      <template #heroActions>
-        <div class="btn-wrap mt-6 d-flex justify-center">          
-          <BaseBtn link="/auth/register" text="Register" width="343" />
-        </div>
-      </template>
-    </Hero> -->
     <AppHero background-image="hero-bg-lg.png" />
     <div class="btn-wrap mt-6 d-flex justify-center">
       <BaseBtn link="/auth/register" text="Register" width="343" />
@@ -25,4 +18,14 @@ export default {
   layout: 'custom',
 }
 </script>
-<style scoped></style>
+<style lang="scss" scoped>
+.btn-wrap {
+  width: 669px;
+  height: 125px;
+  margin: 0 auto;
+  @media screen and(max-width:440px) {
+    width: 90%;
+    height: 64px;
+  }
+}
+</style>

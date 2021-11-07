@@ -20,12 +20,14 @@ export default {
       return require('@/assets/imgs/' + this.backgroundImage)
     },
     inlineStyle() {
+      // const windowWidth = window.innerWidth
       return {
         backgroundImage: `url(${this.bgImage})`,
         boxShadow:
           this.$route.path === '/'
             ? ''
             : 'inset 2000px 0 0 0 rgba(0, 0, 0, 0.5);',
+        // height: this.$route.path === '/' && windowWidth < 500 ? '229px' : false,
       }
     },
   },
@@ -46,6 +48,11 @@ export default {
     height: 208px;
     background-size: cover;
     border-bottom-left-radius: 89px;
+  }
+  @media screen and (max-width: 768px) {
+    height: 60vh;
+    background-size: cover;
+    border-bottom-left-radius: 216px;
   }
 }
 </style>
