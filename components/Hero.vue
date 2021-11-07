@@ -30,7 +30,12 @@ export default {
     },
     inlineStyle() {
       return {
-        backgroundImage: `url(${this.bgImage})`,
+        backgroundImage: `url(${this.bgImage});`,
+        height: this.$route.path === '/' ? '293px;' : false,
+        boxShadow:
+          this.$route.path === '/'
+            ? ''
+            : 'inset 2000px 0 0 0 rgba(0, 0, 0, 0.5); border-bottom-left-radius:80px;',
       }
     },
   },
@@ -56,8 +61,11 @@ export default {
 }
 @media screen and (max-width: 440px) {
   .hero {
+    width: 100%;
     min-height: 265px;
     border-bottom-left-radius: 80px;
+    background-size: cover;
+    background-position: center;
   }
   .btn-wrap {
     width: 100%;

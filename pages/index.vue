@@ -1,13 +1,16 @@
 <template>
   <div>
-    <Hero>
-      <template #heroActions>
-        <div class="btn-wrap mt-6 d-flex justify-center">
-          <!-- <v-btn height="64" class="register-btn" dark width="343">Register</v-btn> -->
-          <BaseBtn link="/auth/register" text="Register" width="343" />
-        </div>
-      </template>
-    </Hero>
+    <AppHero
+      class="d-none d-md-block"
+      background-image="hero-bg-lg2-cmprs.png"
+    />
+    <Hero class="d-md-none" background-image="landing-hero-mobi.png" />
+    <div
+      class="btn-wrap mt-6 d-flex justify-center"
+      @click="$router.push('/auth/register')"
+    >
+      <BaseBtn text="Register" width="343" />
+    </div>
 
     <v-container fluid>
       <v-row justify="center" align="center">
@@ -16,4 +19,20 @@
     </v-container>
   </div>
 </template>
-<style scoped></style>
+<script>
+export default {
+  name: 'LandingPage',
+  layout: 'custom',
+}
+</script>
+<style lang="scss" scoped>
+.btn-wrap {
+  width: 669px;
+  height: 125px;
+  margin: 0 auto;
+  @media screen and(max-width:440px) {
+    width: 90%;
+    height: 64px;
+  }
+}
+</style>

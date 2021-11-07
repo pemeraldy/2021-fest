@@ -1,7 +1,7 @@
 <template>
   <v-container class="content-container">
-    <div class="mt-16 content-wrap">
-      <h1 class="d-inline callout-heading">
+    <div class="mt-16 content-wrap text-center text-md-center">
+      <h1 class="d-inline text-md-center callout-heading">
         <span class="swashed mr-1 d-inline-block"
           >5 days
           <img
@@ -12,20 +12,18 @@
         </span>
         of encountering God like never before.
       </h1>
-      <div class="d-inline">Click <a href="#">here</a> to see schedule</div>
+      <div class="d-inline d-md-block text-md-center">
+        Click <nuxt-link to="/schedule">here</nuxt-link> to see schedule
+      </div>
     </div>
-    <v-sheet class="mt-11 d-flex justify-center">
-      <v-sheet
-        min-width="343"
-        min-height="248"
-        class="vid-wrap d-flex justify-center align-center"
-      >
+    <v-sheet color="transparent" class="mt-11 d-flex justify-center">
+      <v-sheet class="vid-wrap d-flex justify-center align-center">
         <div>
           <img src="~/assets/imgs/play-icon.svg" alt="play button" />
         </div>
       </v-sheet>
     </v-sheet>
-    <v-sheet class="mt-11">
+    <v-sheet color="transparent" class="mt-11">
       <Ministers />
     </v-sheet>
   </v-container>
@@ -63,9 +61,10 @@ export default {}
   }
 }
 .vid-wrap {
-  // background: url('~/assets/imgs/vid-img.png') no-repeat;
-  // background-size: cover;
-  // height: 400px;
+  background: url('~/assets/imgs/vid-img.png') no-repeat;
+  background-size: cover;
+  width: 845px;
+  height: 610px;
   @media screen and (max-width: 440px) {
     width: 343px;
     height: 248px;

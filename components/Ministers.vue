@@ -1,73 +1,118 @@
 <template>
-  <div>
-    <h3 class="text-center">Ministers</h3>
-    <div class="mt-8 d-flex justify-space-around">
-      <div class="ministers-col">
-        <div>
-          <img
-            class="minister-img"
-            src="~/assets/imgs/pst-ayo.png"
-            alt="Pastor Ayo"
-          />
-          <div class="minister-name pa-1 white--text text-center">
-            Pastor Ayo Ajani
-          </div>
-        </div>
-      </div>
-      <div class="ministers-col">
-        <div>
-          <img
-            class="minister-img"
-            src="~/assets/imgs/pst-adeola.png"
-            alt="Pastor Ayo"
-          />
-          <div class="minister-name pa-1 white--text text-center">
-            Pastor Ayo Ajani
-          </div>
-        </div>
-      </div>
-      <div class="ministers-col">
-        <div>
-          <img
-            class="minister-img"
-            src="~/assets/imgs/pst-3.png"
-            alt="Pastor Ayo"
-          />
-          <div class="minister-name pa-1 white--text text-center">
-            Pastor Ayo Ajani
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="mb-10">
+    <h3 class="text-center ministering">Ministering</h3>
     <div class="mt-8 d-flex justify-center">
-      <div class="ministers-col mr-2">
-        <div>
+      <div class="ministers-col mx-md-10 mx-3">
+        <div class="img-wrapper">
           <img
             class="minister-img"
-            src="~/assets/imgs/pst-adeola.png"
+            src="~/assets/imgs/pst-ay-lg.png"
             alt="Pastor Ayo"
           />
-          <div class="minister-name pa-1 white--text text-center">
-            Pastor Ayo Ajani
-          </div>
+        </div>
+        <div
+          class="
+            minister-name
+            d-flex
+            align-center
+            justify-center
+            pa-1
+            white--text
+            text-center
+          "
+        >
+          Pastor Ayo Ajani
         </div>
       </div>
-      <div class="ministers-col ml-2">
-        <div>
+      <div class="ministers-col mx-md-10 mx-3">
+        <div class="img-wrapper">
           <img
             class="minister-img"
-            src="~/assets/imgs/pst-ayo.png"
+            src="~/assets/imgs/pst-ay-lg.png"
             alt="Pastor Ayo"
           />
-          <div class="minister-name pa-1 white--text text-center">
-            Pastor Ayo Ajani
-          </div>
+        </div>
+        <div
+          class="
+            minister-name
+            d-flex
+            align-center
+            justify-center
+            pa-1
+            white--text
+            text-center
+          "
+        >
+          Pastor Ayo Ajani
+        </div>
+      </div>
+      <div class="ministers-col mx-md-10 mx-3">
+        <div class="img-wrapper">
+          <img
+            class="minister-img"
+            src="~/assets/imgs/pst-ay-lg.png"
+            alt="Pastor Ayo"
+          />
+        </div>
+        <div
+          class="
+            minister-name
+            d-flex
+            align-center
+            justify-center
+            pa-1
+            white--text
+            text-center
+          "
+        >
+          Pastor Ayo Ajani
         </div>
       </div>
     </div>
-    <div class="mt-10">
-      <div class="btn-wrap">
-        <BaseBtn text="Register" />
+    <div class="mt-8 d-flex column-two justify-center">
+      <div class="ministers-col mx-md-10 mx-3">
+        <div class="img-wrapper">
+          <img
+            class="minister-img"
+            src="~/assets/imgs/pst-ay-lg.png"
+            alt="Pastor Ayo"
+          />
+        </div>
+        <div
+          class="
+            minister-name
+            d-flex
+            align-center
+            justify-center
+            pa-1
+            white--text
+            text-center
+          "
+        >
+          Pastor Ayo Ajani
+        </div>
+      </div>
+      <div class="ministers-col mx-md-10 mx-3">
+        <div class="img-wrapper">
+          <img
+            class="minister-img"
+            src="~/assets/imgs/pst-ay-lg.png"
+            alt="Pastor Ayo"
+          />
+        </div>
+        <div
+          class="
+            minister-name
+            d-flex
+            align-center
+            justify-center
+            pa-1
+            white--text
+            text-center
+          "
+        >
+          Pastor Ayo Ajani
+        </div>
       </div>
     </div>
   </div>
@@ -78,30 +123,54 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.ministers-col {
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  overflow: hidden;
+img {
+  width: 100%;
+}
+.img-wrapper {
   position: relative;
-  img {
-    width: 100%;
+}
+
+.ministers-col {
+  width: 294px;
+  overflow: hidden;
+  // height: 292px;
+  border-radius: 30px;
+}
+
+.minister-name {
+  background: #f26643;
+  font-size: 30px;
+  height: 135px;
+}
+
+@media screen and (max-width: 440px) {
+  .ministers-col {
+    width: 104px;
   }
   .minister-name {
-    background: #f26643;
-    position: absolute;
-    bottom: 0;
-    @media screen and (max-width: 440px) {
-      font-size: 14px;
-    }
+    height: 48px;
+    width: 100%;
+    font-size: 14px;
   }
-}
-.register-btn {
-  text-transform: capitalize;
-  border-radius: 100px;
-}
-@media screen and (max-width: 440px) {
-  .btn-wrap {
-    width: 343px;
+  .ministers-col:first-child {
+    border: 2px solid orange;
+    border-radius: 0 40px 40px 40px;
+  }
+  .ministers-col:nth-child(2) {
+    border: 2px solid orange;
+    border-radius: 40px 0 40px 40px;
+  }
+  .ministers-col:nth-child(3) {
+    border: 2px solid orange;
+    border-radius: 40px 0 40px 40px;
+  }
+  .column-two .ministers-col:nth-child(1) {
+    border: 2px solid orange;
+    border-radius: 40px 0 40px 40px;
+  }
+  .column-two .ministers-col:nth-child(2) {
+    border: 2px solid orange;
+    border-radius: 0 40px 40px 40px;
   }
 }
 </style>

@@ -4,13 +4,13 @@
       <div class="d-flex align-start justify-start mt-3 flex-column">
         <nuxt-link
           v-for="(link, index) in links"
-          :key="link"
+          :key="index"
           class="my-3"
-          to="/"
+          :to="link.path"
           @click="currentLink = index"
         >
           <span v-if="currentLink === index" class="nav-active"></span>
-          {{ link }}</nuxt-link
+          {{ link.name }}</nuxt-link
         >
       </div>
     </div>
@@ -23,14 +23,38 @@ export default {
     return {
       currentLink: 0,
       links: [
-        'Register',
-        'Schedule',
-        'FAQ',
-        'Invite Someone',
-        'Media',
-        'Ministers',
-        'Testimonies',
-        'Login',
+        {
+          name: 'Register',
+          path: '/auth/register',
+        },
+        {
+          name: 'Schedule',
+          path: '/schedule',
+        },
+        {
+          name: 'FAQ',
+          path: '/faq',
+        },
+        {
+          name: 'Invite Someone',
+          path: '/invite',
+        },
+        {
+          name: 'Media',
+          path: '/media',
+        },
+        {
+          name: 'Ministers',
+          path: '/ministers',
+        },
+        {
+          name: 'Testimonies',
+          path: '/testimonies',
+        },
+        {
+          name: 'Login',
+          path: '/auth/login',
+        },
       ],
       isActive: false,
     }
@@ -43,13 +67,14 @@ export default {
   position: absolute;
   width: 100%;
   height: 83vh;
-  background: url('~/assets/imgs/nav-bg.png');
-  background-color: #580045;
+  background: url('~/assets/imgs/nav-bg.png') no-repeat;
+  background-color: #00112b;
   z-index: 1000000000;
   border-radius: 16px;
 }
 .nuxt-link-exact-active,
-.nuxt-link-active {
+.nuxt-link-active,
+.v-application a {
   position: relative;
   text-decoration: none;
   color: white;
