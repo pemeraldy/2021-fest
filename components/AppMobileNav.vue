@@ -16,7 +16,7 @@
         </nuxt-link>
 
         <v-scroll-y-transition>
-          <v-avatar v-if="navOpen">
+          <v-avatar v-if="navOpen" class="alt-icon">
             <img
               width="40"
               height="40"
@@ -52,4 +52,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.alt-icon {
+  position: absolute;
+  left: 15px;
+}
+</style>
