@@ -1,15 +1,18 @@
 <template>
   <div>
-    <Hero class="d-md-none" background-image="register-hero-bg.png">
+    <MobileHero class="d-md-none" background-image="register-hero-bg.png">
       <div class="d-flex hero-content justify-center align-center">
         <h3 class="white--text pa-4">Register for the festival convention</h3>
       </div>
-    </Hero>
-    <AppHero class="d-none d-md-block" background-image="register-bg-desk.png">
+    </MobileHero>
+    <DesktopHero
+      class="d-none d-md-block"
+      background-image="register-bg-desk.png"
+    >
       <div class="d-flex hero-desk-content justify-center align-center">
         <h3 class="white--text pa-4">Register for the festival convention</h3>
       </div>
-    </AppHero>
+    </DesktopHero>
     <v-container>
       <div class="mt-10">
         <h1 class="form-heading text-md-center">Kindly fill in your details</h1>
