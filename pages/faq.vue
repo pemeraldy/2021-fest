@@ -144,6 +144,32 @@
         </div>
       </div>
     </DesktopHero>
+    <div class="mt-md-16 pa-md-10"></div>
+    <div class="mt-16">
+      <v-container>
+        <v-row>
+          <v-col v-for="i in 8" :key="i" class="pr-md-10" cols="12" md="6">
+            <div class="faq-container d-flex">
+              <div class="bullet-container mr-4 mr-md-7">
+                <div class="bullet d-flex align-center justify-center">
+                  0{{ i }}
+                </div>
+              </div>
+              <div class="faq-content">
+                <h3 class="faq-heading">What is the Festival Convention?</h3>
+                <p class="faq-parag mt-5">
+                  Urna cursus vitae, tellus placerat phasellus in. Massa, id
+                  adipiscing orci est, nec, sagittis. Sodales adipiscing
+                  fermentum convallis fringilla et mauris, libero ut turpis.
+                  Tortor vitae interdum etiam luctus molestie sagittis erat
+                  congue imperdiet.
+                </p>
+              </div>
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
   </div>
 </template>
 
@@ -179,6 +205,42 @@ h3.notif-header {
     h3 {
       font-size: 26px;
     }
+  }
+}
+/*FAQ LISTING */
+.faq-heading {
+  font-size: 35px;
+  font-weight: 500;
+}
+.faq-parag {
+  font-size: 18px;
+  font-weight: 400;
+}
+.bullet {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(
+    121deg,
+    #f29822 13.56%,
+    #f26643 46.86%,
+    #f24857 72.25%,
+    #f23c5f 86.44%
+  );
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 50%;
+}
+@media screen and (max-width: 440px) {
+  .faq-heading {
+    font-size: 24px;
+  }
+  .faq-parag {
+    font-size: 14px;
+  }
+  .bullet {
+    width: 24px;
+    height: 24px;
   }
 }
 </style>
