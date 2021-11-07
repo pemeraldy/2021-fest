@@ -22,19 +22,30 @@ export default {
     inlineStyle() {
       return {
         backgroundImage: `url(${this.bgImage})`,
+        boxShadow:
+          this.$route.path === '/'
+            ? ''
+            : 'inset 2000px 0 0 0 rgba(0, 0, 0, 0.5);',
       }
     },
   },
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .hero-section {
   position: relative;
   /* background: url('~/assets/imgs/hero-bg-lg2.png') no-repeat; */
   background-repeat: no-repeat;
   background-size: cover;
-  height: 90vh;
+  height: 98vh;
   width: 100%;
+  border-bottom-left-radius: 370px;
+  // box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.5);
+  @media screen and (max-width: 400px) {
+    height: 208px;
+    background-size: cover;
+    border-bottom-left-radius: 89px;
+  }
 }
 </style>

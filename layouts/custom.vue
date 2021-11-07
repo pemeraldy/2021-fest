@@ -1,9 +1,11 @@
 <template>
   <v-app :style="inlineStyle">
     <AppNavigationBar />
+    <AppMobileNav />
     <v-main>
       <Nuxt />
     </v-main>
+    <AppFooter />
   </v-app>
 </template>
 

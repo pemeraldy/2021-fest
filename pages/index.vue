@@ -1,13 +1,16 @@
 <template>
   <div>
-    <Hero>
+    <!-- <Hero>
       <template #heroActions>
-        <div class="btn-wrap mt-6 d-flex justify-center">
-          <!-- <v-btn height="64" class="register-btn" dark width="343">Register</v-btn> -->
+        <div class="btn-wrap mt-6 d-flex justify-center">          
           <BaseBtn link="/auth/register" text="Register" width="343" />
         </div>
       </template>
-    </Hero>
+    </Hero> -->
+    <AppHero background-image="hero-bg-lg.png" />
+    <div class="btn-wrap mt-6 d-flex justify-center">
+      <BaseBtn link="/auth/register" text="Register" width="343" />
+    </div>
 
     <v-container fluid>
       <v-row justify="center" align="center">
@@ -16,4 +19,10 @@
     </v-container>
   </div>
 </template>
+<script>
+export default {
+  name: 'LandingPage',
+  layout: 'custom',
+}
+</script>
 <style scoped></style>

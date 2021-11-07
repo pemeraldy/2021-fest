@@ -41,13 +41,13 @@ export default {}
 
 <style lang="scss" scoped>
 .invite-card {
-  max-width: 639px;
+  // max-width: 639px;
 }
 .card-wrap {
   border-top-left-radius: 80px;
   background: #b195959b url('~/assets/imgs/invite-card-image.png');
   position: relative;
-  width: 636px;
+  // width: 636px;
   height: 745px;
 }
 .card-logo {
@@ -56,8 +56,11 @@ export default {}
   right: 14px;
 }
 .inviter {
-  width: 450px;
+  // width: 450px;
   height: 450px;
+}
+img {
+  width: 100%;
 }
 .card-content {
   background: url('~/assets/imgs/card-content-bg.png') no-repeat;
@@ -65,7 +68,13 @@ export default {}
 }
 .invitee {
   margin: 0 auto;
-  background: #f26643;
+  background: linear-gradient(
+    121deg,
+    #f29822 13.56%,
+    #f26643 46.86%,
+    #f24857 72.25%,
+    #f23c5f 86.44%
+  );
   height: 75px;
   width: 472px;
   border-radius: 10px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-nav d-flex align-center pa-3 mt-12">
+  <div class="custom-nav d-none d-md-flex align-center pa-3 mt-12">
     <nav class="custom-nav__inner d-flex justify-between">
       <div class="logo-wrap">
         <nuxt-link to="/">
