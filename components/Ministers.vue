@@ -129,14 +129,7 @@ img {
 .img-wrapper {
   position: relative;
 }
-// .img-wrapper img.minister-img {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   height: 100%;
-//   width: 100%;
-//   object-fit: cover;
-// }
+
 .ministers-col {
   width: 294px;
   overflow: hidden;

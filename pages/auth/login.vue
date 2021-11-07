@@ -67,7 +67,7 @@
 <script>
 export default {
   name: 'RegisterPage',
-  // layout: 'd'
+  layout: 'custom',
 }
 </script>
 
