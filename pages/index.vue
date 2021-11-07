@@ -1,6 +1,10 @@
 <template>
   <div>
-    <AppHero background-image="hero-bg-lg.png" />
+    <AppHero
+      class="d-none d-md-block"
+      background-image="hero-bg-lg2-cmprs.png"
+    />
+    <Hero class="d-md-none" background-image="landing-hero-mobi.png" />
     <div class="btn-wrap mt-6 d-flex justify-center">
       <BaseBtn link="/auth/register" text="Register" width="343" />
     </div>
