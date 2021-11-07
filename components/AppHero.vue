@@ -55,4 +55,7 @@ export default {
     border-bottom-left-radius: 216px;
   }
 }
+.hero-inner {
+  height: 100%;
+}
 </style>

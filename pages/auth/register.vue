@@ -1,15 +1,20 @@
 <template>
   <div>
-    <Hero background-image="register-hero-bg.png">
+    <Hero class="d-md-none" background-image="register-hero-bg.png">
       <div class="d-flex hero-content justify-center align-center">
         <h3 class="white--text pa-4">Register for the festival convention</h3>
       </div>
     </Hero>
+    <AppHero class="d-none d-md-block" background-image="register-bg-desk.png">
+      <div class="d-flex hero-desk-content justify-center align-center">
+        <h3 class="white--text pa-4">Register for the festival convention</h3>
+      </div>
+    </AppHero>
     <v-container>
       <div class="mt-10">
-        <h1 class="form-heading">Kindly fill in your details</h1>
+        <h1 class="form-heading text-md-center">Kindly fill in your details</h1>
       </div>
-      <v-form>
+      <v-form class="register-form">
         <v-container>
           <v-row>
             <v-col cols="12">
@@ -104,7 +109,9 @@
                 />
               </div>
               <div class="mt-5 d-flex flex-column align-center justif-center">
-                <BaseBtn text="Register" width="305" />
+                <div class="btn-wrap mt-6 d-flex justify-center">
+                  <BaseBtn text="Register" />
+                </div>
                 <p class="mt-2">
                   Have an account already ?
                   <nuxt-link to="/auth/login">Login</nuxt-link>
@@ -121,11 +128,17 @@
 <script>
 export default {
   name: 'RegisterPage',
-  // layout: 'd'
+  layout: 'custom',
 }
 </script>
 
 <style lang="scss" scoped>
+.hero-desk-content {
+  height: 100%;
+  h3 {
+    font-size: 62px;
+  }
+}
 .input-group {
   width: 100%;
   label {
@@ -167,6 +180,23 @@ export default {
     line-height: 48px;
     letter-spacing: 0em;
     text-align: left;
+  }
+}
+
+.register-form {
+  width: 60%;
+  margin: 0 auto;
+  @media screen and(max-width: 440px) {
+    width: 100%;
+  }
+}
+.btn-wrap {
+  width: 669px;
+  height: 125px;
+  margin: 0 auto;
+  @media screen and(max-width:440px) {
+    width: 90%;
+    height: 64px;
   }
 }
 </style>
