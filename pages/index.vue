@@ -1,10 +1,10 @@
 <template>
   <div>
-    <AppHero
+    <DesktopHero
       class="d-none d-md-block"
       background-image="hero-bg-lg2-cmprs.png"
     />
-    <Hero class="d-md-none" background-image="landing-hero-mobi.png" />
+    <MobileHero class="d-md-none" background-image="landing-hero-mobi.png" />
     <div
       class="btn-wrap mt-6 d-flex justify-center"
       @click="$router.push('/auth/register')"
