@@ -68,7 +68,7 @@ export default {
   width: 100%;
   height: 83vh;
   background: url('~/assets/imgs/nav-bg.png') no-repeat;
-  background-color: #00112b;
+  background-color: #00080c;
   z-index: 1000000000;
   border-radius: 16px;
 }

@@ -7,7 +7,7 @@ export default {
     target: 'static',
     // ssr: false, //if client side only
     generate: {
-      routes: ['/', '/auth/login', '/auth/register', '/faq'],
+      routes: ['/', '/auth/login', '/auth/register', '/faq', '/invite'],
     },
     titleTemplate: '%s - Petra',
     title: 'PetraCC',
@@ -31,7 +31,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~/assets/customs.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
