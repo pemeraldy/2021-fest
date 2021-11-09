@@ -270,30 +270,41 @@
                   <h1 class="card-header mt-n3 text-center">Heaven on Earth</h1>
                 </div>
 
-                <h3 class="card-sub__heading mt-md-10 text-uppercase">
+                <h3 class="card-sub__heading mt-5 mt-md-10 text-uppercase">
                   1st - 5th, December 2021
                 </h3>
-                <div class="hr-divider my-md-7"></div>
+                <div class="hr-divider my-3 my-md-7"></div>
                 <h3 class="card-sub__heading text-uppercase">
                   VenueXXXXXXXXXX
                 </h3>
-                <div class="invite-text mt-md-8 mb-md-8 px-md-11 text-center">
+                <div
+                  class="
+                    invite-text
+                    px-7
+                    mt-5
+                    mb-5
+                    mt-md-8
+                    mb-md-8
+                    px-md-11
+                    text-center
+                  "
+                >
                   Ut condimentum nec, mattis eget et felis. Magna ut malesuada
                   ullamcorper mauris. Platea proin blandit volutpat velit,
                   iaculis natoque vel. Pretium pretium, sit etiam cras mattis
                   dolor cras.
                 </div>
-                <p class="px-md-11 mb-md-16 text-left">
+                <p class="px-md-11 px-7 mb-8 mb-md-16 text-left">
                   To register, visit: http:/xxxxxxxxxxxxxx
                 </p>
               </div>
             </div>
           </div>
-          <div class="d-flex justify-center mt-md-16 mb-md-16">
-            <div class="btn-wrap mx-md-5">
+          <div class="d-flex justify-center mt-8 mb-8 mt-md-16 mb-md-16">
+            <div class="btn-wrap mx-1 mx-md-5">
               <BaseBtn text="Share" />
             </div>
-            <div class="btn-wrap mx-md-5">
+            <div class="btn-wrap mx-1 mx-md-5">
               <BaseBtn text="Download" />
             </div>
           </div>
@@ -422,6 +433,49 @@ export default {
       text-align: center;
     }
   }
+  .invite-container {
+    width: 100%;
+  }
+  .card-top {
+    background: url('~/assets/imgs/invite-bg-mobile.png') no-repeat;
+    height: 405px;
+    width: 100%;
+  }
+  .circle-outer {
+    width: 280px;
+    height: 280px;
+    padding: 6px;
+  }
+  .circle-inner {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+  }
+  .invite-card__content {
+    margin-top: -10px;
+  }
+  .inviter-name {
+    width: 253px;
+    height: 40px;
+    font-size: 16px;
+    margin-top: -20px;
+  }
+  .add-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .card-header {
+    font-size: 27px;
+  }
+  .card-sub__heading {
+    font-size: 16px;
+  }
+  .invite-text {
+    font-size: 16px;
+  }
+
+  // mlksmaxlkasmx
+
   .btn-wrap {
     width: 160px !important;
     height: 64px;
