@@ -48,9 +48,9 @@ export default {
   /* width: 669px;
   height: 125px; */
 }
-@media screen and (max-width: 440px) {
+/* @media screen and (max-width: 440px) {
   .theme-btn {
     width: 271px;
   }
-}
+} */
 </style>
