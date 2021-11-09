@@ -18,10 +18,21 @@
     <v-container class="mt-12">
       <v-row>
         <v-col cols="12">
-          <p>Click on “+” to add your picture</p>
+          <p class="text-center">Click on “+” to add your picture</p>
           <div class="invite-container">
             <div class="invite-card__wrap">
               <div class="card-top d-flex align-center justify-center">
+                <div class="logo-container">
+                  <PetraLogoBright
+                    class="d-none d-md-block"
+                    width="100"
+                    height="100"
+                  />
+                  <PetraLogoBright class="d-md-none" width="40" height="40" />
+                </div>
+                <!-- <div class="logo-containern d-block d-md-none">
+                  <PetraLogoBright width="40" height="40" />
+                </div> -->
                 <div class="circle-outer">
                   <svg
                     viewBox="0 0 503 501"
@@ -338,9 +349,15 @@ export default {
   margin: 0 auto;
 }
 .card-top {
+  position: relative;
   background: url('~/assets/imgs/invite-top-bg.png') no-repeat;
   height: 845px;
   border-top-left-radius: 80px;
+}
+.logo-container {
+  position: absolute;
+  top: 18px;
+  right: 15px;
 }
 .circle-outer {
   width: 534px;
@@ -403,7 +420,8 @@ export default {
   font-weight: 400;
   text-align: center;
   border-radius: 10px;
-  margin-top: -36px;
+  margin-top: -2px;
+  z-index: 10;
 }
 .card-header {
   font-size: 45px;
@@ -441,6 +459,10 @@ export default {
     background: url('~/assets/imgs/invite-bg-mobile.png') no-repeat;
     height: 405px;
     width: 100%;
+  }
+  .logo-container {
+    top: 18px;
+    right: 15px;
   }
   .circle-outer {
     width: 280px;
