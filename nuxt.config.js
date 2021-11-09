@@ -7,7 +7,7 @@ export default {
     target: 'static',
     // ssr: false, //if client side only
     generate: {
-      routes: ['/', '/auth/login', '/auth/register', '/faq'],
+      routes: ['/', '/auth/login', '/auth/register', '/faq', '/invite'],
     },
     titleTemplate: '%s - Petra',
     title: 'PetraCC',

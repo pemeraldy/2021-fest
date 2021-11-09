@@ -18,6 +18,7 @@
     <v-container class="mt-12">
       <v-row>
         <v-col cols="12">
+          <p>Click on “+” to add your picture</p>
           <div class="invite-container">
             <div class="invite-card__wrap">
               <div class="card-top d-flex align-center justify-center">
