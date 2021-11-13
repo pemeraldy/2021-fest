@@ -15,7 +15,9 @@
     </DesktopHero>
     <v-container>
       <div class="mt-10">
-        <h1 class="form-heading text-md-center">Kindly fill in your details</h1>
+        <h1 class="form-heading text-center text-md-center">
+          Kindly fill in your details
+        </h1>
       </div>
       <v-form class="register-form" @submit.prevent="submit">
         <v-container>
@@ -64,6 +66,11 @@
                   name="number"
                   type="text"
                 />
+                <span
+                  v-if="$v.user.phone_number.$error"
+                  class="red--text error-text"
+                  >Please select an Yes / No</span
+                >
               </div>
               <div class="input-group mt-2">
                 <label for="email">Email address </label>
@@ -164,7 +171,7 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
-import { minLength, email, required } from 'vuelidate/lib/validators'
+import { minLength, email, integer, required } from 'vuelidate/lib/validators'
 export default {
   name: 'RegisterPage',
   mixins: [validationMixin],
@@ -200,6 +207,7 @@ export default {
       },
       phone_number: {
         required,
+        integer,
         minLength: minLength(10),
       },
       email_address: {
@@ -223,29 +231,42 @@ export default {
   mounted() {
     // eslint-disable-next-line no-console
     console.log(this.$v.user)
+    window.navigator.geolocation
+      // eslint-disable-next-line no-console
+      .getCurrentPosition(this.getLocations, console.log)
+
+    // console.log(latlng)
   },
   methods: {
-    submit() {
+    async getLocations(e) {
+      const { coords } = await e
+      this.latitude = coords.latitude
+      this.longitude = coords.longitude
+      // eslint-disable-next-line no-console
+      console.log('Cordinates', coords)
+    },
+    async submit() {
       this.$v.user.$touch()
+      if (this.$v.user.$invalid) return
       // eslint-disable-next-line no-console
       console.log(this.$v.user.$invalid)
-      //   try {
-      //   const resp = await this.$axios.$post('/api/participants/', {
-      //     first_name: 'Yopee',
-      //     last_name: 'Main',
-      //     phone_number: '08099999854',
-      //     email_address: 'yopeeDon@Ymail.com',
-      //     new_to_petra: false,
-      //     attendance_type: 'in person',
-      //     location: 'Life Camp',
-      //     heard_about_festival_from: 'Church',
-      //   })
-      //   // eslint-disable-next-line no-console
-      //   console.log(resp)
-      // } catch (error) {
-      //   // eslint-disable-next-line no-console
-      //   console.log(error)
-      // }
+      try {
+        const resp = await this.$axios.$post('/api/participants/', {
+          first_name: 'Yopee',
+          last_name: 'Main',
+          phone_number: '08099999854',
+          email_address: 'yopeeDon@Ymail.com',
+          new_to_petra: false,
+          attendance_type: 'in person',
+          location: 'Life Camp',
+          heard_about_festival_from: 'Church',
+        })
+        // eslint-disable-next-line no-console
+        console.log(resp)
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error)
+      }
     },
   },
 }
