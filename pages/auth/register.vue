@@ -27,23 +27,27 @@
                 >
                 <input
                   id="fname"
-                  v-model="user.first_name"
+                  v-model="$v.user.first_name.$model"
                   required
                   name="firstname"
                   class="mt-2"
+                  :class="[$v.user.first_name.$error ? 'invalid' : '']"
                   type="text"
                 />
               </div>
+              <!-- first Name Error: {{ $v.user.first_name.$error }} invalid:
+              {{ $v.user.first_name.$invalid }} -->
               <div class="input-group mt-2">
                 <label for="lname"
                   >Last Name <span class="required">*</span></label
                 >
                 <input
                   id="lname"
-                  v-model="user.last_name"
+                  v-model="$v.user.last_name.$model"
                   required
                   name="lastname"
                   class="mt-2"
+                  :class="[$v.user.last_name.$error ? 'invalid' : '']"
                   type="text"
                 />
               </div>
@@ -53,9 +57,10 @@
                 >
                 <input
                   id="number"
-                  v-model="user.phone_number"
+                  v-model="$v.user.phone_number.$model"
                   required
                   class="mt-2"
+                  :class="[$v.user.phone_number.$error ? 'invalid' : '']"
                   name="number"
                   type="text"
                 />
@@ -64,24 +69,36 @@
                 <label for="email">Email address </label>
                 <input
                   id="email"
-                  v-model="user.email_address"
+                  v-model="$v.user.email_address.$model"
                   required
                   class="mt-2"
+                  :class="[$v.user.email_address.$error ? 'invalid' : '']"
                   name="email"
                   type="email"
                 />
               </div>
 
-              <v-radio-group v-model="user.new_to_petra">
+              <v-radio-group v-model="$v.user.new_to_petra.$model">
                 <p>Are you new to Petra?</p>
+                <span
+                  v-if="$v.user.new_to_petra.$error"
+                  class="red--text error-text"
+                  >Please select an Yes / No</span
+                >
                 <v-radio label="Yes" value="Yes" name="yes"></v-radio>
                 <v-radio label="No" name="no" value="No"></v-radio>
               </v-radio-group>
+
               <!-- New to petra {{ user.new_to_petra }} -->
-              <v-radio-group v-model="user.attendance_type">
+              <v-radio-group v-model="$v.user.attendance_type.$model">
                 <p>
                   Will you be attending in person? {{ user.attendance_type }}
                 </p>
+                <span
+                  v-if="$v.user.attendance_type.$error"
+                  class="red--text error-text"
+                  >Please select an option</span
+                >
                 <v-radio label="In person" value="In-person"></v-radio>
                 <v-radio label="online" value="online"></v-radio>
               </v-radio-group>
@@ -90,17 +107,23 @@
                 <label for="email">Where do you live?</label>
                 <input
                   id="location"
-                  v-model="user.location"
+                  v-model="$v.user.location.$model"
                   required
                   class="mt-2"
+                  :class="[$v.user.location.$error ? 'invalid' : '']"
                   name="location"
                   type="text"
                   placeholder="Example Maitama, Abuja"
                 />
               </div>
 
-              <v-radio-group v-model="user.heard_about_festival_from">
+              <v-radio-group v-model="$v.user.heard_about_festival_from.$model">
                 <p>How did you hear about the festival convention?</p>
+                <span
+                  v-if="$v.user.heard_about_festival_from.$error"
+                  class="red--text error-text"
+                  >Please select an option</span
+                >
                 <v-radio label="In Petra" value="petra"></v-radio>
                 <v-radio label="Social media" value="media"></v-radio>
                 <v-radio label="Word of mouth" value="word"></v-radio>
@@ -120,6 +143,9 @@
                 />
               </div>
               <div class="mt-5 d-flex flex-column align-center justif-center">
+                <v-alert v-if="showAlert" dense text :type="alertType">
+                  {{ alertMessage }}
+                </v-alert>
                 <div class="btn-wrap mt-6 d-flex justify-center">
                   <BaseBtn text="Register" @click.prevent="submit" />
                 </div>
@@ -138,12 +164,16 @@
 
 <script>
 import { validationMixin } from 'vuelidate'
+import { minLength, email, required } from 'vuelidate/lib/validators'
 export default {
   name: 'RegisterPage',
   mixins: [validationMixin],
   layout: 'custom',
   data() {
     return {
+      showAlert: false,
+      alertMessage: 'No message yet',
+      alertType: 'success',
       user: {
         first_name: '',
         last_name: '',
@@ -158,23 +188,47 @@ export default {
       },
     }
   },
-  // validations: {
-  //   first_name: '',
-  //   last_name: '',
-  //   phone_number: '',
-  //   email_address: '',
-  //   new_to_petra: '',
-  //   attendance_type: '',
-  //   location: '',
-  //   longitude: '',
-  //   latitude: '',
-  //   heard_about_festival_from: '',
-  // },
-  mounted() {},
+  validations: {
+    user: {
+      first_name: {
+        required,
+        minLength: minLength(2),
+      },
+      last_name: {
+        required,
+        minLength: minLength(2),
+      },
+      phone_number: {
+        required,
+        minLength: minLength(10),
+      },
+      email_address: {
+        required,
+        email,
+      },
+      location: {
+        required,
+      },
+      new_to_petra: {
+        required,
+      },
+      attendance_type: {
+        required,
+      },
+      heard_about_festival_from: {
+        required,
+      },
+    },
+  },
+  mounted() {
+    // eslint-disable-next-line no-console
+    console.log(this.$v.user)
+  },
   methods: {
     submit() {
+      this.$v.user.$touch()
       // eslint-disable-next-line no-console
-      console.log(this.user)
+      console.log(this.$v.user.$invalid)
       //   try {
       //   const resp = await this.$axios.$post('/api/participants/', {
       //     first_name: 'Yopee',
@@ -209,8 +263,17 @@ export default {
   label {
     display: block;
   }
+  .red--text .error-text {
+    font-size: 8px !important;
+  }
   .required {
     color: #ff0000;
+  }
+  input.invalid {
+    border: 0.3px solid #ff0000;
+  }
+  input.valid {
+    border: 0.3px solid #03b67e;
   }
   input {
     width: 100%;
