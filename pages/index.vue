@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="pageData.data">
     <DesktopHero
       class="d-none d-md-block"
       :background-image="pageData.data.banner_image_desktop.value"
