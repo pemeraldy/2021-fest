@@ -69,7 +69,7 @@
                 <span
                   v-if="$v.user.phone_number.$error"
                   class="red--text error-text"
-                  >Please select an Yes / No</span
+                  >Please enter a valid phone number</span
                 >
               </div>
               <div class="input-group mt-2">
@@ -228,38 +228,51 @@ export default {
       },
     },
   },
-  mounted() {
-    // eslint-disable-next-line no-console
-    console.log(this.$v.user)
-    window.navigator.geolocation
+  async mounted() {
+    // window.navigator.geolocation
+    //   // eslint-disable-next-line no-console
+    //   .getCurrentPosition(this.getLocations, console.log)
+    try {
+      const tt = await this.$axios.$post('/api/participants/', {
+        first_name: 'dklscnlsdknq1',
+        last_name: 'csdklnclkdsnc',
+        phone_number: '54654654654',
+        email_address: 'me@mail.com',
+        new_to_petra: false,
+        attendance_type: 'In-person',
+        location: 'Maubnnka',
+        heard_about_festival_from: 'petra',
+      })
       // eslint-disable-next-line no-console
-      .getCurrentPosition(this.getLocations, console.log)
-
-    // console.log(latlng)
+      console.log(tt)
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error.response)
+    }
   },
   methods: {
     async getLocations(e) {
       const { coords } = await e
-      this.latitude = coords.latitude
-      this.longitude = coords.longitude
+      this.user.latitude = coords.latitude
+      this.user.longitude = coords.longitude
       // eslint-disable-next-line no-console
       console.log('Cordinates', coords)
     },
     async submit() {
       this.$v.user.$touch()
+      // eslint-disable-next-line no-console
+      console.log(this.user)
       if (this.$v.user.$invalid) return
       // eslint-disable-next-line no-console
       console.log(this.$v.user.$invalid)
+      const userDetails = this.user
+      if (!this.user.latitude) {
+        delete userDetails.latitude
+        delete userDetails.longitude
+      }
       try {
         const resp = await this.$axios.$post('/api/participants/', {
-          first_name: 'Yopee',
-          last_name: 'Main',
-          phone_number: '08099999854',
-          email_address: 'yopeeDon@Ymail.com',
-          new_to_petra: false,
-          attendance_type: 'in person',
-          location: 'Life Camp',
-          heard_about_festival_from: 'Church',
+          ...userDetails,
         })
         // eslint-disable-next-line no-console
         console.log(resp)
