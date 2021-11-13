@@ -12,17 +12,13 @@ export default {
     // eslint-disable-next-line vue/require-default-prop
     backgroundImage: {
       type: String,
-      default: 'hero-bg-lg2.png',
+      default: '/hero-bg-lg2.png',
     },
   },
   computed: {
-    bgImage() {
-      return require('@/assets/imgs/' + this.backgroundImage)
-    },
     inlineStyle() {
-      // const windowWidth = window.innerWidth
       return {
-        backgroundImage: `url(${this.bgImage})`,
+        backgroundImage: `url(${this.backgroundImage})`,
         boxShadow:
           this.$route.path === '/'
             ? ''

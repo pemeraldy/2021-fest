@@ -28,7 +28,8 @@ export default {
 
 <style scoped>
 .theme-btn {
-  width: 100%;
+  width: 10em;
+  max-width: 100%;
   background: linear-gradient(
     121deg,
     #f29822 13.56%,
@@ -43,14 +44,15 @@ export default {
   border-radius: 100px;
   font-size: 22px;
   font-weight: 600;
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   /* width: 669px;
   height: 125px; */
 }
-/* @media screen and (max-width: 440px) {
+@media screen and (min-width: 440px) {
   .theme-btn {
-    width: 271px;
+    width: 16em;
+    height: 4em;
   }
-} */
+}
 </style>

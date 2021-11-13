@@ -21,17 +21,14 @@ export default {
     // eslint-disable-next-line vue/require-default-prop
     backgroundImage: {
       type: String,
-      default: 'hero-bg-lg.png',
+      default: '/hero-bg-lg.png',
     },
   },
   computed: {
-    bgImage() {
-      return require('@/assets/imgs/' + this.backgroundImage)
-    },
     inlineStyle() {
       return {
-        backgroundImage: `url(${this.bgImage});`,
-        height: this.$route.path === '/' ? '293px;' : false,
+        backgroundImage: `url(${this.backgroundImage})`,
+        height: this.$route.path === '/' ? '293px' : false,
         // boxShadow:
         //   this.$route.path === '/'
         //     ? ''

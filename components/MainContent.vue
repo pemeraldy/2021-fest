@@ -16,13 +16,13 @@
         Click <nuxt-link to="/schedule">here</nuxt-link> to see schedule
       </div>
     </div>
-    <v-sheet color="transparent" class="mt-11 d-flex justify-center">
-      <v-sheet class="vid-wrap d-flex justify-center align-center">
+    <!-- <v-sheet color="transparent" class="mt-11 d-flex justify-center">
+      <v-sheet :style="`background-image:url(ministers_banner)`" class="vid-wrap d-flex justify-center align-center">
         <div>
           <img src="~/assets/imgs/play-icon.svg" alt="play button" />
         </div>
       </v-sheet>
-    </v-sheet>
+    </v-sheet> -->
     <v-sheet color="transparent" class="mt-11">
       <Ministers />
     </v-sheet>
@@ -30,7 +30,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    parentData: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
