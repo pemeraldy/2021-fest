@@ -51,10 +51,35 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    // baseURL: 'https://sinai.thefestivalng.com/api-docs/', final baseLink
+    baseURL: 'http://festival-lb-1788972554.us-east-2.elb.amazonaws.com',
+  },
+  auth: {
+    redirect: false,
+    strategies: {
+      local: {
+        // autoFetchUser:false,
+        token: {
+          property: 'access_token',
+          // required: true,
+          type: 'Bearer',
+        },
+        user: {
+          property: false, // <--- Default "user"
+          autoFetch: true,
+        },
+        endpoints: {
+          login: { url: '/auth/login', method: 'post' },
+          // user: { url: '/user/profile', method: 'get' },
+        },
+      },
+    },
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
