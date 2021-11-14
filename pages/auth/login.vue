@@ -17,42 +17,46 @@
       <div class="mt-10">
         <!-- <h1 class="form-heading">Kindly fill in your details</h1> -->
       </div>
-      <v-form class="login-form">
+      <v-form @submit.prevent="submit" class="login-form">
         <v-container>
           <v-row>
             <v-col cols="12">
               <div class="input-group">
-                <label for="email">Email/Phone numer </label>
+                <label for="email">Email </label>
                 <input
+                  v-model="user.email"
                   id="email"
                   required
                   name="email"
                   class="mt-2"
+                  :class="[$v.user.email.$error ? 'invalid' : '']"
                   type="text"
                   placeholder="Type in your Email or Phone number"
                 />
               </div>
               <div class="input-group mt-2">
-                <label for="password">Password </label>
+                <label for="password">Passcode </label>
                 <input
+                  v-model="user.passcode"
                   id="lname"
                   required
                   name="lastname"
                   class="mt-2"
+                  :class="[$v.user.passcode.$error ? 'invalid' : '']"
                   type="password"
                   placeholder="Type in your password"
                 />
               </div>
               <p class="mb-12 mt-6 grey--text">
                 Forgot password?
-                <nuxt-link to="/auth/reser-password">Reset</nuxt-link>
+                <nuxt-link to="/auth/reset-password">Reset</nuxt-link>
               </p>
               <p class="text-center grey--text mt-5">
                 Don't have an account?
                 <nuxt-link to="/auth/register">Register</nuxt-link>
               </p>
               <div class="mt-5 d-flex justify-center">
-                <div class="btn-wrap mt-6 d-flex justify-center">
+                <div @click="submit" class="btn-wrap mt-6 d-flex justify-center">
                   <BaseBtn text="Login" />
                 </div>
               </div>
@@ -65,9 +69,37 @@
 </template>
 
 <script>
+import {validationMixin} from 'vuelidate'
+import {email, minLength, required} from 'vuelidate/lib/validators'
 export default {
-  name: 'RegisterPage',
+  name: 'Login',
   layout: 'custom',
+  mixins:[validationMixin],
+  data(){
+    return {
+      user:{
+        email: '',
+        passcode: '',
+      }
+    }
+  },
+  validations:{
+    user:{
+      email:{
+        required,
+        email
+      },
+      passcode:{
+        required,
+        minLength: minLength(4)
+      }
+    }
+  },
+  methods:{
+    submit(){
+      console.log(this.user, 'Validat:::', this.$v)
+    }
+  }
 }
 </script>
 
@@ -75,6 +107,12 @@ export default {
 a {
   text-decoration: none !important;
 }
+  input.invalid {
+    border: 0.3px solid #ff0000;
+  }
+  input.valid {
+    border: 0.3px solid #03b67e;
+  }
 .faint-text {
   opacity: 0.5;
 }
@@ -101,6 +139,8 @@ a {
     font-size: 14px;
   }
 }
+
+
 @media screen and (max-width: 440px) {
   .hero-content {
     min-height: 208px !important;
