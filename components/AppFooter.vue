@@ -47,15 +47,15 @@
       <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Schedule</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
-      <nuxt-link class="my-2 mx-md-10" to="/faq">FAQ</nuxt-link>
+      <nuxt-link class="my-2 mx-md-10" to="/">FAQs</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
-      <nuxt-link class="my-2 mx-md-10" to="/invite">Invite Someone</nuxt-link>
+      <nuxt-link class="my-2 mx-md-10" to="/">Invite Someone</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Media</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Ministers</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
-      <nuxt-link class="my-2 mx-md-10" to="/testimonies">Testimonies</nuxt-link>
+      <nuxt-link class="my-2 mx-md-10" to="/">Testimonies</nuxt-link>
     </div>
     <p class="my-10 text-center copy-right">
       &copy; 2021 tribepetracc. All rights reserved.
