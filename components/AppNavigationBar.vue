@@ -23,11 +23,11 @@
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Schedule</nuxt-link
         >
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/invite"
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Invite someone</nuxt-link
         >
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/faq">FAQ</nuxt-link>
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/ministers"
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/">FAQ</nuxt-link>
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Ministers</nuxt-link
         >
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
@@ -36,7 +36,7 @@
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Testimonies</nuxt-link
         >
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/auth/login"
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Login</nuxt-link
         >
       </div>
@@ -72,7 +72,7 @@ export default {}
 }
 .custom-nav-item {
   text-decoration: none;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   color: #000;
 }

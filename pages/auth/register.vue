@@ -287,7 +287,7 @@ export default {
         this.submitting = false
         setTimeout(()=>{
           this.showAlert = false
-          this.$router.push('/auth/login')
+          // this.$router.push('/auth/login')
         }, 2500)
       } catch (error) {
         const message = error.response.data.message

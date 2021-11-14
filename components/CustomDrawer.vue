@@ -28,36 +28,32 @@ export default {
           path: '/auth/register',
         },
         {
-          name: 'Prayer',
-          path: 'https://www.petracc.org/prayerguide',
-        },
-        {
           name: 'Schedule',
-          path: '/schedule',
+          path: '/',
         },
         {
           name: 'FAQ',
-          path: '/faq',
+          path: '/',
         },
         {
           name: 'Invite Someone',
-          path: '/invite',
+          path: '/',
         },
         {
           name: 'Media',
-          path: '/media',
+          path: '/',
         },
         {
           name: 'Ministers',
-          path: '/ministers',
+          path: '/',
         },
         {
           name: 'Testimonies',
-          path: '/testimonies',
+          path: '/',
         },
         {
           name: 'Login',
-          path: '/auth/login',
+          path: '/',
         },
       ],
       isActive: false,
