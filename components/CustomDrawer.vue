@@ -28,6 +28,10 @@ export default {
           path: '/auth/register',
         },
         {
+          name: 'Prayer',
+          path: 'https://www.petracc.org/prayerguide',
+        },
+        {
           name: 'Schedule',
           path: '/schedule',
         },
