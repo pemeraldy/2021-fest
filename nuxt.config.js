@@ -56,8 +56,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // baseURL: 'https://sinai.thefestivalng.com', //final baseLink
-    baseURL: 'http://localhost:7050', //final baseLink
+    baseURL: 'https://sinai.thefestivalng.com', //final baseLink
+    // baseURL: 'http://localhost:7050', //final baseLink
     // baseURL: 'http://festival-lb-1788972554.us-east-2.elb.amazonaws.com',
   },
   auth: {
