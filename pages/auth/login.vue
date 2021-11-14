@@ -38,22 +38,22 @@
                 <label for="password">Passcode </label>
                 <input
                   v-model="user.passcode"
-                  id="lname"
+                  id="passcode"
                   required
-                  name="lastname"
+                  name="passcode"
                   class="mt-2"
                   :class="[$v.user.passcode.$error ? 'invalid' : '']"
                   type="password"
-                  placeholder="Type in your password"
+                  placeholder="Type in your passcode"
                 />
               </div>
               <p class="mb-12 mt-6 grey--text">
                 Forgot password?
-                <nuxt-link to="/auth/reset-password">Reset</nuxt-link>
+                <nuxt-link to="/">Reset</nuxt-link>
               </p>
               <p class="text-center grey--text mt-5">
                 Don't have an account?
-                <nuxt-link to="/auth/register">Register</nuxt-link>
+                <nuxt-link to="/">Register</nuxt-link>
               </p>
               <div class="mt-5 d-flex justify-center">
                 <div @click="submit" class="btn-wrap mt-6 d-flex justify-center">
