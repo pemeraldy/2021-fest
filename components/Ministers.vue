@@ -201,7 +201,9 @@ img.desktop-img{
   // height: 292px;
   border-radius: 30px;
 }
-
+.ministering{
+  font-size: 40px;
+}
 .minister-name {
   background: #f26643;
   font-size: 30px;
@@ -237,6 +239,9 @@ img.desktop-img{
     width: 100%;
     font-size: 12px;
   }
+  .ministering{
+  font-size: 18px;
+}
   .minister-name .min-title{
     font-size: 10px;
   }
