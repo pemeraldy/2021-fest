@@ -161,7 +161,7 @@
                 </div>
                 <p class="mt-2">
                   Have an account already ?
-                  <nuxt-link to="/auth/login">Login</nuxt-link>
+                  <nuxt-link to="/">Login</nuxt-link>
                 </p>
               </div>
             </v-col>
