@@ -161,7 +161,7 @@
                 </div>
                 <p class="mt-2">
                   Have an account already ?
-                  <nuxt-link to="/auth/login">Login</nuxt-link>
+                  <nuxt-link to="/">Login</nuxt-link>
                 </p>
               </div>
             </v-col>
@@ -287,7 +287,7 @@ export default {
         this.submitting = false
         setTimeout(()=>{
           this.showAlert = false
-          this.$router.push('/auth/login')
+          // this.$router.push('/auth/login')
         }, 2500)
       } catch (error) {
         const message = error.response.data.message
