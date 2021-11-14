@@ -20,7 +20,7 @@
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/auth/register"
           >Register</nuxt-link
         >
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/schedule"
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Schedule</nuxt-link
         >
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/invite"
@@ -30,10 +30,10 @@
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/ministers"
           >Ministers</nuxt-link
         >
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/media"
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Media</nuxt-link
         >
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/testimonies"
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Testimonies</nuxt-link
         >
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/auth/login"

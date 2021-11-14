@@ -17,7 +17,7 @@
 
     <v-container fluid>
       <v-row justify="center" align="center">
-        <MainContent :parent-data="pageData" />
+        <MainContent />
       </v-row>
     </v-container>
   </div>
@@ -31,7 +31,7 @@ export default {
       pageData: {
         banner_image_desktop: { value: '/hero-bg-lg2-cmprs.png' },
         banner_image_mobile: { value: '/landing-hero-mobi.png' },
-        page_title: { value: 'Welcome jome' },
+        page_title: { value: 'Welcome home' },
       },
     }
   },

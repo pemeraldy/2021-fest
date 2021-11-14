@@ -23,7 +23,7 @@
           </v-avatar>
         </v-btn>
         
-        <div class="px-5 ml-auto">
+        <div  class="px-5 ml-auto d-md-none">
           <v-btn icon>
           <v-avatar width="48" height="48">
             <img src="~/assets/imgs/logo-white.svg" alt="email" />
@@ -35,7 +35,8 @@
     </div>
     <div
       class="
-        d-flex                
+        d-flex 
+        mt-md-16               
         mt-12
         flex-column
         justify-md-space-around
@@ -43,17 +44,17 @@
       "
     >
       <nuxt-link class="my-2 mx-md-10" to="/auth/register">Register</nuxt-link>
-      <v-divider dark></v-divider>
+      <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Schedule</nuxt-link>
-      <v-divider dark></v-divider>
+      <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/faq">FAQ</nuxt-link>
-      <v-divider dark></v-divider>
+      <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/invite">Invite Someone</nuxt-link>
-      <v-divider dark></v-divider>
+      <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Media</nuxt-link>
-      <v-divider dark></v-divider>
+      <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Ministers</nuxt-link>
-      <v-divider dark></v-divider>
+      <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/testimonies">Testimonies</nuxt-link>
     </div>
     <p class="my-10 text-center copy-right">

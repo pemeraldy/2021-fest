@@ -1,5 +1,12 @@
 <template>
-  <button :to="link" class="theme-btn" dark>{{ text }}</button>
+  <button :to="link" class="theme-btn" dark>
+    <v-progress-circular
+    v-if="submitting"
+      indeterminate
+      color="white"
+    ></v-progress-circular>
+    <span v-else>{{ text }}</span>
+    </button>
 </template>
 
 <script>
@@ -14,6 +21,10 @@ export default {
       type: String,
       default: '',
     },
+    submitting:{
+      type: Boolean,
+      default: false
+    }
     // width: {
     //   type: String,
     //   default: '343',

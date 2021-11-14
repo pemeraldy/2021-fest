@@ -4,12 +4,7 @@
       <slot>
         <div class="hero d-flex flex-column align-center"></div>
       </slot>
-      <!-- <h1 class="mt-10">Petra Festival</h1>
-      <h1>Convention 2021</h1>
-      <p class="text-center pa-5">
-        Diam ultrices eu donec tristique ut faucibus amet adipiscing eget. Porta
-        pellentesque id condimentum eget at.
-      </p> -->
+      
     </div>
     <!-- <slot name="heroActions"> </slot> -->
   </div>
@@ -29,10 +24,10 @@ export default {
       return {
         backgroundImage: `url(${this.backgroundImage})`,
         height: this.$route.path === '/' ? '293px' : false,
-        // boxShadow:
-        //   this.$route.path === '/'
-        //     ? ''
-        //     : 'inset 2000px 0 0 0 rgba(0, 0, 0, 0.5); border-bottom-left-radius:80px;',
+        boxShadow:
+          this.$route.path === '/'
+            ? ''
+            : 'inset 2000px 0 0 0 rgba(0, 0, 0, 0.5); border-bottom-left-radius:80px;',
       }
     },
   },
@@ -42,8 +37,8 @@ export default {
 <style scoped>
 .hero-container {
   width: 100%;
-  /* background: url('~/assets/imgs/hero-bg-lg.png') no-repeat; */
   background-size: cover;
+  border-bottom-left-radius:80px;
 }
 .register-btn {
   background: linear-gradient(

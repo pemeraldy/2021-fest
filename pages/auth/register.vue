@@ -1,16 +1,16 @@
 <template>
   <div>
-    <MobileHero class="d-md-none" background-image="register-hero-bg.png">
+    <MobileHero class="d-md-none" :background-image="pageData.data.banner_image_mobile.value">
       <div class="d-flex hero-content justify-center align-center">
-        <h3 class="white--text pa-4">Register for the festival convention</h3>
+        <h3 class="white--text pa-4">{{pageData.data.page_title.value}}</h3>
       </div>
     </MobileHero>
     <DesktopHero
       class="d-none d-md-block"
-      background-image="register-bg-desk.png"
+      :background-image="pageData.data.banner_image_desktop.value"
     >
       <div class="d-flex hero-desk-content justify-center align-center">
-        <h3 class="white--text pa-4">Register for the festival convention</h3>
+        <h3 class="white--text pa-4">{{pageData.data.page_title.value}}</h3>
       </div>
     </DesktopHero>
     <v-container>
@@ -19,7 +19,8 @@
           Kindly fill in your details
         </h1>
       </div>
-      <v-form class="register-form" @submit.prevent="submit">
+      <v-form  ref="regForm" class="register-form" @submit.prevent="submit">
+        <fieldset :disabled="submitting">
         <v-container>
           <v-row>
             <v-col cols="12">
@@ -99,7 +100,7 @@
               <!-- New to petra {{ user.new_to_petra }} -->
               <v-radio-group v-model="$v.user.attendance_type.$model">
                 <p>
-                  Will you be attending in person? {{ user.attendance_type }}
+                  Will you be attending in person?
                 </p>
                 <span
                   v-if="$v.user.attendance_type.$error"
@@ -150,11 +151,13 @@
                 />
               </div>
               <div class="mt-5 d-flex flex-column align-center justif-center">
-                <v-alert v-if="showAlert" dense text :type="alertType">
-                  {{ alertMessage }}
-                </v-alert>
+                <v-scale-transition>
+                  <v-alert v-if="showAlert" dense text :type="alertType">
+                    {{ alertMessage }}
+                  </v-alert>
+                </v-scale-transition>
                 <div class="btn-wrap mt-6 d-flex justify-center">
-                  <BaseBtn text="Register" @click.prevent="submit" />
+                  <BaseBtn :submitting="submitting" text="Register" @click.prevent="submit" />
                 </div>
                 <p class="mt-2">
                   Have an account already ?
@@ -164,6 +167,7 @@
             </v-col>
           </v-row>
         </v-container>
+      </fieldset>
       </v-form>
     </v-container>
   </div>
@@ -178,9 +182,17 @@ export default {
   layout: 'custom',
   data() {
     return {
+      pageData: {
+        data:{
+          banner_image_desktop: { value: '/hero-bg-lg2-cmprs.png' },
+        banner_image_mobile: { value: '/landing-hero-mobi.png' },
+        page_title: { value: 'Register for the festival' },
+        }
+      },
       showAlert: false,
       alertMessage: 'No message yet',
       alertType: 'success',
+      submitting: false,
       user: {
         first_name: '',
         last_name: '',
@@ -194,6 +206,11 @@ export default {
         heard_about_festival_from: '',
       },
     }
+  },
+  async fetch() {
+    try {
+      this.pageData = await this.$axios.$get('/api/page/register')
+    } catch (error) {}
   },
   validations: {
     user: {
@@ -229,58 +246,61 @@ export default {
     },
   },
   async mounted() {
-    // window.navigator.geolocation
-    //   // eslint-disable-next-line no-console
-    //   .getCurrentPosition(this.getLocations, console.log)
-    try {
-      const tt = await this.$axios.$post('/api/participants/', {
-        first_name: 'dklscnlsdknq1',
-        last_name: 'csdklnclkdsnc',
-        phone_number: '54654654654',
-        email_address: 'me@mail.com',
-        new_to_petra: false,
-        attendance_type: 'In-person',
-        location: 'Maubnnka',
-        heard_about_festival_from: 'petra',
-      })
+    console.log(this.pageData)
+    await window.navigator.geolocation
       // eslint-disable-next-line no-console
-      console.log(tt)
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error.response)
-    }
+      .getCurrentPosition(this.getLocations, ()=>{})
+    
   },
   methods: {
     async getLocations(e) {
       const { coords } = await e
-      this.user.latitude = coords.latitude
-      this.user.longitude = coords.longitude
+      this.user.latitude = `${coords.latitude}`
+      this.user.longitude = `${coords.longitude}`
       // eslint-disable-next-line no-console
-      console.log('Cordinates', coords)
+      // console.log('Cordinates', coords)
+    },
+    displayAlert(message, type, display){
+      this.alertMessage = message
+        this.alertType = type
+        this.showAlert = display
     },
     async submit() {
       this.$v.user.$touch()
       // eslint-disable-next-line no-console
       console.log(this.user)
       if (this.$v.user.$invalid) return
-      // eslint-disable-next-line no-console
-      console.log(this.$v.user.$invalid)
+      this.submitting = true
       const userDetails = this.user
       if (!this.user.latitude) {
         delete userDetails.latitude
         delete userDetails.longitude
       }
       try {
+        const newToPetra = this.user.new_to_petra === 'Yes'
         const resp = await this.$axios.$post('/api/participants/', {
           ...userDetails,
+          new_to_petra: newToPetra
         })
-        // eslint-disable-next-line no-console
-        console.log(resp)
+        this.displayAlert(resp.message, 'success', true)
+        this.$refs.regForm.reset()
+        this.submitting = false
+        setTimeout(()=>{
+          this.showAlert = false
+          this.$router.push('/auth/login')
+        }, 2500)
       } catch (error) {
+        const message = error.response.data.message
         // eslint-disable-next-line no-console
-        console.log(error)
+        this.displayAlert(message, 'error', true)
+        this.submitting = false
+        setTimeout(()=>{
+          this.showAlert = false
+        }, 3500)
+        console.log(error.response)
       }
     },
+    
   },
 }
 </script>
@@ -291,6 +311,9 @@ export default {
   h3 {
     font-size: 62px;
   }
+}
+fieldset{
+  border:none;
 }
 .input-group {
   width: 100%;
@@ -363,3 +386,19 @@ export default {
   }
 }
 </style>
+
+
+/***
+  {
+      "first_name": "jola",
+      "last_name": "main",
+      "phone_number": "99809786756564",
+      "email_address": "men@mdress.com",
+      "pass_code": "D01PDB",
+      "id": 9,
+      "new_to_petra": false,
+      "attendance_type": "In-person",
+      "location": "Maina",
+      "heard_about_festival_from": "petra"
+  }
+ */
