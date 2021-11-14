@@ -3,8 +3,8 @@
     <h3 class="text-center ministering">Ministering</h3>
     <div class="mt-8 d-flex justify-center">
       <!-- Mobile -->
-      <div  v-for="minister in firstRow" :key="minister.name" class="ministers-col d-md-none mx-md-10 mx-3">
-        <div class="mobile-radius-curve">
+      <div  v-for="(minister, index) in firstRow" :key="minister.name" class="ministers-col d-md-none mx-md-10 mx-3">
+        <div :class="[ true ? `mobile-radius-curve${index+1}`: '']" class="mobile-radius-curve">
           <div class="img-wrapper img-wrap-mobile">
           <img
             class="minister-img"
@@ -16,14 +16,17 @@
           class="
             minister-name
             d-flex
-            align-center
+            align-md-center
             justify-center
             pa-1
             white--text
             text-center
           "
         >
-          {{minister.name}}
+          <div>
+            <span class="min-title">{{splitName(minister.name).title}}</span> <br>
+          <span class="full-name mt-n2">{{splitName(minister.name).fullName}} </span>
+          </div>
         </div>
         </div>
       </div>
@@ -57,8 +60,9 @@
     </div>
     <div class="mt-8 d-flex column-two justify-center">
       <!-- Mobile -->
-      <!-- <div v-for="minister in secondRow" :key="minister.name" class="ministers-col d-md-none mx-md-10 mx-3">
-        <div class="img-wrapper">
+      <div  v-for="(minister, index) in secondRow" :key="minister.name" class="ministers-col d-md-none mx-md-10 mx-3">
+        <div :class="[ true ? `mobile-radius-curve${index+1}`: '']" class="mobile-radius-curve">
+          <div class="img-wrapper img-wrap-mobile">
           <img
             class="minister-img"
             :src="minister.photo_mobile"
@@ -76,9 +80,13 @@
             text-center
           "
         >
-          {{minister.name}}
+          <div>
+            <span class="min-title">{{splitName(minister.name).title}}</span> <br>
+            <span class="full-name mt-n2">{{splitName(minister.name).fullName}} </span>
+          </div>
         </div>
-      </div> -->
+        </div>
+      </div>
       <!-- Desktop -->
       <div v-for="minister in secondRow" :key="minister.name" class="ministers-col d-none d-md-block mx-md-10 mx-3">
         <div class="desktop-radius-curve">
@@ -142,8 +150,25 @@ export default {
 
     console.log(this.ministers)
   },
-  mounted(){
-    console.log(this.ministers)
+  methods:{
+    splitName(name){
+      if(name.includes('Bishop')){
+        const title = name.substring(0, 'Bishop'.length)
+        const fullName = name.split('Bishop')[1]
+        return {
+          title,
+          fullName
+        }
+      }
+      if(name.includes('Pastor')){
+        const title = name.substring(0, 'Pastor'.length)
+        const fullName = name.split('Pastor')[1]
+        return {
+          title,
+          fullName
+        }
+      }
+    }
   }
 }
 </script>
@@ -187,12 +212,16 @@ img.desktop-img{
   .img-wrap-mobile{
     position: relative;
     min-width: 92px;
-    max-width: 92px;
+    // max-width: 92px;
     height: 160px;
-    border: 2px solid white
+    // border: 1px solid white;
+    border-bottom: none;
   }
   .mobile-radius-curve{
     overflow: hidden;
+    box-shadow: -1px 0px 41px -12px rgba(0,0,0,0.64);
+-webkit-box-shadow: -1px 0px 41px -12px rgba(0,0,0,0.64);
+-moz-box-shadow: -1px 0px 41px -12px rgba(0,0,0,0.64);
   }
     .img-wrap-mobile img.minister-img{
       position: absolute;
@@ -204,28 +233,32 @@ img.desktop-img{
     width: 104px;
   }
   .minister-name {
-    height: 48px;
+    height: 64px;
     width: 100%;
     font-size: 12px;
   }
-  .ministers-col .mobile-radius-curve:first-child {
-    
+  .minister-name .min-title{
+    font-size: 10px;
+  }
+  .minister-name .full-name{
+    font-size: 12px;
+  }
+   .mobile-radius-curve1{
     border-radius: 0 40px 40px 40px;
   }
-  .ministers-col .mobile-radius-curve:nth-child(2) {
+   .mobile-radius-curve2 {
     
     border-radius: 40px 0 40px 40px;
   }
-  .ministers-col .mobile-radius-curve:nth-child(3) {
+   .mobile-radius-curve3 {
     
     border-radius: 40px 0 40px 40px;
   }
-  .column-two .ministers-col .mobile-radius-curve:nth-child(1) {
-    
+  .column-two .ministers-col .mobile-radius-curve1 {
     border-radius: 40px 0 40px 40px;
+    // border-radius: 40px 0 40px 40px;
   }
-  .column-two .ministers-col .mobile-radius-curve:nth-child(2) {
-    
+  .column-two .ministers-col .mobile-radius-curve2 {
     border-radius: 0 40px 40px 40px;
   }
 }
