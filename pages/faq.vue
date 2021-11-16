@@ -1,6 +1,6 @@
 <template>
   <div>
-    <MobileHero class="d-md-none" background-image="faq-mobile.png">
+    <MobileHero class="d-md-none" :background-image="pageData.data.banner_image_desktop.value">
       <div class="d-flex hero-content justify-center align-center">
         <h3 class="white--text pa-4">
           Most frequently <br />
@@ -72,7 +72,7 @@
         </div>
       </div>
     </MobileHero>
-    <DesktopHero class="d-none d-md-block" background-image="faq-desk.png">
+    <DesktopHero class="d-none d-md-block" :background-image="pageData.data.banner_image_mobile.value">
       <div class="d-flex hero-desk-content justify-center align-center">
         <h3 class="white--text pa-4 notif-header">
           Most frequently <br />
@@ -182,6 +182,7 @@ export default {
   async fetch(){
     try {
       this.faqs = await this.$axios.$get('/api/faq')
+      this.pageData = await this.$axios.$get('/api/page/faq')
     } catch (error) {
       console.log(error)
     }
@@ -190,24 +191,25 @@ export default {
   data(){
     return {
       faqs:[],
+      pageData:{
+        data:{
+          banner_image_desktop: { value: '/faq-desk.png' },
+        banner_image_mobile: { value: '/faq-mobile.png.png' },
+        page_title: { value: 'faqs' },
+        }
+      }
     }
   },
-  created(){
-    console.log(this.faqs)
-  }
 }
 </script>
 
 <style lang="scss" scoped>
-// @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200&display=swap');
-// *{
-//   font-family: 'Work Sans', sans-serif;
-//   color: #000;
-//   font-size: 18px;
-// }
-.faq-parag ul li::marker{
-  content: 😎;
-  color: orange;
+
+ul {
+  list-style: none !important;
+}
+.faq-parag ul li::before{
+  content: '😎';
   font-size: 20px;
 }
 .svg-wrap {
