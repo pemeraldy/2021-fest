@@ -205,12 +205,20 @@ export default {
 
 <style lang="scss" scoped>
 
-ul {
+.faq-parag ::v-deep p {
+  font-size: 18px;
+}
+.faq-parag ::v-deep ul {
+  padding-left: 0;
   list-style: none !important;
 }
-.faq-parag ul li::before{
+.faq-parag ::v-deep ul li{
+  font-size: 12px;
+  margin: 10px 0
+}
+.faq-parag ::v-deep ul li::before{
   content: '😎';
-  font-size: 20px;
+  font-size: 10px;
 }
 .svg-wrap {
   width: 200px;
@@ -237,10 +245,13 @@ h3.notif-header {
       font-size: 26px;
     }
   }
+  .faq-parag{
+    font-size: 16px;
+  }
 }
 /*FAQ LISTING */
 .faq-heading {
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 500;
 }
 .faq-parag {
