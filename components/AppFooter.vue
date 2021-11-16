@@ -47,7 +47,7 @@
       <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Schedule</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
-      <nuxt-link class="my-2 mx-md-10" to="/">FAQ</nuxt-link>
+      <nuxt-link class="my-2 mx-md-10" to="/">FAQs</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Invite Someone</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
