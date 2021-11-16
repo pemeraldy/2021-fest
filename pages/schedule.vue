@@ -53,7 +53,7 @@
           </v-col>
           <v-col class="my-3 my-md-12" cols="12"></v-col>
           <!-- <div class="mt-md-16 pa-md-10"></div> -->
-          <v-col cols="12" md="4">
+          <v-col cols="12" v-for="i in 3" :key="i" md="4">
             <v-card class="mx-auto custom-card" max-width="344">
               <!-- src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" -->
               <v-img
@@ -122,6 +122,9 @@ h3.schedule-header {
 }
 .v-sheet.v-card:not(.v-sheet--outlined).custom-card {
   border-radius: 80px 0px 80px 80px;
+  box-shadow: -4px 2px 28px -2px rgba(0,0,0,0.46);
+-webkit-box-shadow: -4px 2px 28px -2px rgba(0,0,0,0.46);
+-moz-box-shadow: -4px 2px 28px -2px rgba(0,0,0,0.46);
 }
 .custom-car__title {
   font-size: 24px;
