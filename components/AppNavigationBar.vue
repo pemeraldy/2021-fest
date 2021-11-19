@@ -26,7 +26,7 @@
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Invite someone</nuxt-link
         > -->
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/">FAQs</nuxt-link>
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/faq">FAQs</nuxt-link>
         <!-- <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Ministers</nuxt-link
         >
@@ -74,6 +74,9 @@ export default {}
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
-  color: #000;
+  color: rgba(0, 0, 0, 0.4);
+}
+.nuxt-link-exact-active {
+  color: rgba(0, 0, 0, 1);
 }
 </style>
