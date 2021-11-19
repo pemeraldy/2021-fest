@@ -1,6 +1,9 @@
 <template>
   <div>
-    <MobileHero class="d-md-none" background-image="faq-mobile.png">
+    <MobileHero
+      class="d-md-none"
+      :background-image="pageData.data.banner_image_desktop.value"
+    >
       <div class="d-flex hero-content justify-center align-center">
         <h3 class="white--text pa-4">
           Most frequently <br />
@@ -72,7 +75,10 @@
         </div>
       </div>
     </MobileHero>
-    <DesktopHero class="d-none d-md-block" background-image="faq-desk.png">
+    <DesktopHero
+      class="d-none d-md-block"
+      :background-image="pageData.data.banner_image_mobile.value"
+    >
       <div class="d-flex hero-desk-content justify-center align-center">
         <h3 class="white--text pa-4 notif-header">
           Most frequently <br />
@@ -145,25 +151,33 @@
       </div>
     </DesktopHero>
     <div class="mt-md-16 pa-md-10"></div>
-    <div class="mt-16">
+    <div class="my-16">
       <v-container>
         <v-row>
-          <v-col v-for="i in 8" :key="i" class="pr-md-10" cols="12" md="6">
+          <!-- <pre>{{faqs}}</pre> -->
+          <v-col
+            v-for="(faq, index) in faqs.data"
+            :key="index"
+            class="pr-md-10"
+            cols="12"
+            md="6"
+          >
             <div class="faq-container d-flex">
               <div class="bullet-container mr-4 mr-md-7">
                 <div class="bullet d-flex align-center justify-center">
-                  0{{ i }}
+                  0{{ index + 1 }}
                 </div>
               </div>
               <div class="faq-content">
-                <h3 class="faq-heading">What is the Festival Convention?</h3>
-                <p class="faq-parag mt-5">
+                <h3 class="faq-heading">{{ faq.question }}</h3>
+                <div class="faq-parag mt-5" v-html="faq.answer"></div>
+                <!-- <p class="faq-parag mt-5">
                   Urna cursus vitae, tellus placerat phasellus in. Massa, id
                   adipiscing orci est, nec, sagittis. Sodales adipiscing
                   fermentum convallis fringilla et mauris, libero ut turpis.
                   Tortor vitae interdum etiam luctus molestie sagittis erat
                   congue imperdiet.
-                </p>
+                </p> -->
               </div>
             </div>
           </v-col>
@@ -177,10 +191,45 @@
 export default {
   name: 'Faq',
   layout: 'custom',
+  async fetch() {
+    try {
+      this.faqs = await this.$axios.$get('/api/faq')
+      this.pageData = await this.$axios.$get('/api/page/faq')
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  data() {
+    return {
+      faqs: [],
+      pageData: {
+        data: {
+          banner_image_desktop: { value: '/faq-desk.png' },
+          banner_image_mobile: { value: '/faq-mobile.png.png' },
+          page_title: { value: 'faqs' },
+        },
+      },
+    }
+  },
 }
 </script>
 
 <style lang="scss" scoped>
+.faq-parag ::v-deep p {
+  font-size: 18px;
+}
+.faq-parag ::v-deep ul {
+  padding-left: 0;
+  list-style: none !important;
+}
+.faq-parag ::v-deep ul li {
+  font-size: 12px;
+  margin: 10px 0;
+}
+.faq-parag ::v-deep ul li::before {
+  content: '✌️';
+  font-size: 2rem;
+}
 .svg-wrap {
   width: 200px;
   @media screen and (max-width: 440px) {
@@ -206,10 +255,13 @@ h3.notif-header {
       font-size: 26px;
     }
   }
+  .faq-parag {
+    font-size: 16px;
+  }
 }
 /*FAQ LISTING */
 .faq-heading {
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 500;
 }
 .faq-parag {

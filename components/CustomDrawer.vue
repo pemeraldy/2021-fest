@@ -9,7 +9,7 @@
           :to="link.path"
           @click="currentLink = index"
         >
-          <span v-if="currentLink === index" class="nav-active"></span>
+          <span v-if="$route.path === link.path" class="nav-active"></span>
           {{ link.name }}</nuxt-link
         >
       </div>
@@ -27,34 +27,34 @@ export default {
           name: 'Register',
           path: '/auth/register',
         },
-        {
-          name: 'Schedule',
-          path: '/',
-        },
+        // {
+        //   name: 'Schedule',
+        //   path: '/',
+        // },
         {
           name: 'FAQ',
-          path: '/',
+          path: '/faq',
         },
-        {
-          name: 'Invite Someone',
-          path: '/',
-        },
-        {
-          name: 'Media',
-          path: '/',
-        },
-        {
-          name: 'Ministers',
-          path: '/',
-        },
-        {
-          name: 'Testimonies',
-          path: '/',
-        },
-        {
-          name: 'Login',
-          path: '/',
-        },
+        // {
+        //   name: 'Invite Someone',
+        //   path: '/',
+        // },
+        // {
+        //   name: 'Media',
+        //   path: '/',
+        // },
+        // {
+        //   name: 'Ministers',
+        //   path: '/',
+        // },
+        // {
+        //   name: 'Testimonies',
+        //   path: '/',
+        // },
+        // {
+        //   name: 'Login',
+        //   path: '/',
+        // },
       ],
       isActive: false,
     }
@@ -70,7 +70,8 @@ export default {
   background: url('~/assets/imgs/nav-bg.png') no-repeat;
   background-color: #00080c;
   z-index: 1000000000;
-  border-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 .nuxt-link-exact-active,
 .nuxt-link-active,
