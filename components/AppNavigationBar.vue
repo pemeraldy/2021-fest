@@ -17,17 +17,20 @@
       </div>
       <v-spacer></v-spacer>
       <div class="d-flex justify-between align-center pr-10">
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/auth/register"
-          >Register</nuxt-link
-        >
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/auth/register">Register</nuxt-link>
+
+         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/schedule"
           >Schedule</nuxt-link
         >
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
-          >Invite someone</nuxt-link
+         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/faq"
+          >FAQs</nuxt-link
         >
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/">FAQ</nuxt-link>
-        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
+        <!--
+         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
+          >Invite someone</nuxt-link
+        > 
+        <nuxt-link class="custom-nav-item pa-3 mx-2" to="/faq">FAQs</nuxt-link>
+         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Ministers</nuxt-link
         >
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
@@ -38,7 +41,7 @@
         >
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Login</nuxt-link
-        >
+        > -->
       </div>
     </nav>
   </div>

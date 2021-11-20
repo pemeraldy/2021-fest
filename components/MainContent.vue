@@ -13,7 +13,7 @@
         of encountering God like never before.
       </h1>
       <div class="d-inline d-md-block text-md-center">
-        Click <nuxt-link to="/schedule">here</nuxt-link> to see schedule
+        Click <nuxt-link to="/">here</nuxt-link> to see schedule
       </div>
     </div>
     <!-- <v-sheet color="transparent" class="mt-11 d-flex justify-center">
