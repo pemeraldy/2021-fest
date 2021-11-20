@@ -17,7 +17,7 @@
         </h3>
       </div>
     </DesktopHero>
-    
+
     <div class="my-16">
       <v-container>
         <v-row>
@@ -32,10 +32,8 @@
                 :class="[i == 1 && 'active']"
                 class="
                   date-display
-                  mx-md-5
-                  mx-1
-                  pa-md-5
-                  pa-3
+                  mx-md-5 mx-1
+                  pa-md-5 pa-3
                   d-flex
                   flex-column
                   justify-space-around
@@ -45,7 +43,7 @@
                 <span class="date-display__day">Wed</span>
                 <span
                   class="date-display__date d-flex align-center justify-center"
-                  >0{{i}}</span
+                  >0{{ i }}</span
                 >
                 <span class="date-display__month">Dec</span>
               </div>
@@ -53,25 +51,24 @@
           </v-col>
           <v-col class="my-3 my-md-12" cols="12"></v-col>
           <!-- <div class="mt-md-16 pa-md-10"></div> -->
-          <v-col cols="12" v-for="i in 3" :key="i" md="4">
+          <v-col v-for="(schedule, index) in schedules" :key="`${index}-shedule`" cols="12" md="4">
             <v-card class="mx-auto custom-card" max-width="344">
               <!-- src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" -->
               <v-img
-                :src="require('~/assets/imgs/card-img.png')"
+                :src="schedule.image_url"
                 height="270px"
               ></v-img>
 
               <v-card-title class="custom-car__title">
-                Morning: 8am - 12noon
+                {{schedule.session}}: {{schedule.time}}
               </v-card-title>
 
               <v-card-subtitle class="custom-car__subtitle my-2">
-                Fresh Annointing
+                {{schedule.title}}
               </v-card-subtitle>
               <v-card-text class="pb-md-14 pb-10">
                 <p>
-                  Diam ultrices eu donec tristique ut faucibus amet adipiscing
-                  eget. Porta pellentesque id condimentum eget at.
+                  {{schedule.description}}
                 </p>
               </v-card-text>
             </v-card>
@@ -86,17 +83,17 @@
 export default {
   name: 'Schedule',
   layout: 'custom',
-  async fetch() {
-    try {
-      this.faqs = await this.$axios.$get('/api/faq')
-      this.pageData = await this.$axios.$get('/api/page/faq')
-    } catch (error) {
-      console.log(error)
-    }
-  },
   data() {
     return {
-      faqs: [],
+      schedules: [
+        {
+          image_url: 'https...',
+          session: 'Morning',
+          time: '8AM',
+          title: 'Conference Opener & Concert',
+          description: 'some description',
+        },
+      ],
       pageData: {
         data: {
           banner_image_desktop: { value: '/faq-desk.png' },
@@ -106,6 +103,29 @@ export default {
       },
     }
   },
+  async fetch() {
+    const now = new Date()
+    const inceptionDate = new Date('Sat Dec 5 2021 00:00:00')
+    const currentDate = now.getDate() > inceptionDate ? now.getDate : inceptionDate
+    try {      
+      this.schedules = await this.$axios.$get(`/api/schedule/${currentDate}`)
+      this.pageData = await this.$axios.$get('/api/page/schedule')
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error)
+    }
+  },
+  methods:{
+    async getSchedule(day){
+      try {
+        const schedules = await this.$axios.$get(`/api/schedules/${day}`)
+        this.schedules = schedules 
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.log(error)
+      }
+    }
+  }
 }
 </script>
 
@@ -122,9 +142,9 @@ h3.schedule-header {
 }
 .v-sheet.v-card:not(.v-sheet--outlined).custom-card {
   border-radius: 80px 0px 80px 80px;
-  box-shadow: -4px 2px 28px -2px rgba(0,0,0,0.46);
--webkit-box-shadow: -4px 2px 28px -2px rgba(0,0,0,0.46);
--moz-box-shadow: -4px 2px 28px -2px rgba(0,0,0,0.46);
+  box-shadow: -4px 2px 28px -2px rgba(0, 0, 0, 0.46);
+  -webkit-box-shadow: -4px 2px 28px -2px rgba(0, 0, 0, 0.46);
+  -moz-box-shadow: -4px 2px 28px -2px rgba(0, 0, 0, 0.46);
 }
 .custom-car__title {
   font-size: 24px;
@@ -176,19 +196,19 @@ h3.schedule-header {
       font-size: 26px;
     }
   }
-  .date-display{
+  .date-display {
     width: 56px;
     height: 104px;
     border-radius: 40px;
-    .date-display__day{
+    .date-display__day {
       font-size: 14px;
     }
-    .date-display__date{
+    .date-display__date {
       width: 24px;
       height: 24px;
       font-size: 14px;
     }
-    .date-display__month{
+    .date-display__month {
       font-size: 14px;
     }
   }

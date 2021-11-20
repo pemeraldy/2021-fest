@@ -19,9 +19,13 @@
       <div class="d-flex justify-between align-center pr-10">
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/auth/register">Register</nuxt-link>
 
-        <!-- <nuxt-link class="custom-nav-item pa-3 mx-2" to="/schedule"
+         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/schedule"
           >Schedule</nuxt-link
         >
+         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/faq"
+          >FAQs</nuxt-link
+        >
+        <!--
          <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Invite someone</nuxt-link
         > 
