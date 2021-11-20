@@ -85,6 +85,7 @@ export default {
   layout: 'custom',
   data() {
     return {
+      // days:['Mon','Tue', 'Wed','Thur', 'Fri','Sat','Sun'],
       schedules: [
         {
           image_url: 'https...',
@@ -105,10 +106,16 @@ export default {
   },
   async fetch() {
     const now = new Date()
-    const inceptionDate = new Date('Sat Dec 5 2021 00:00:00')
-    const currentDate = now.getDate() > inceptionDate ? now.getDate : inceptionDate
+    const [month,day]  = [now.getMonth(), now.getDate()]
+    const dateNum = [month,day].join('')
+    const start = 1101
+     const end = 1105
+    const fetchParam = dateNum < start ? 1 : dateNum > end ? 1 : now.getDate()
+    // const inceptionDate = new Date('Sat Dec 1 2021 00:00:00')
+    // const currentDate = now.getDate() > inceptionDate ? now.getDate : inceptionDate
     try {      
-      this.schedules = await this.$axios.$get(`/api/schedule/${currentDate}`)
+      // this.schedules = await this.$axios.$get(`/api/schedule/${currentDate}`)
+      this.schedules = await this.$axios.$get(`/api/schedule/${fetchParam}`)
       this.pageData = await this.$axios.$get('/api/page/schedule')
     } catch (error) {
       // eslint-disable-next-line no-console
