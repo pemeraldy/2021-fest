@@ -4,7 +4,9 @@
       class="d-md-none"
       :background-image="pageData.data.banner_image_desktop.value"
     >
-      <div class="d-flex hero-content justify-center align-center"></div>
+      <div class="d-flex hero-content justify-center align-center">
+        <h1 class="white--text text-center">{{pageData.data.page_title.value}}</h1>
+      </div>
     </MobileHero>
     <DesktopHero
       class="d-none d-md-block"
@@ -14,6 +16,7 @@
         <h3 class="white--text pa-4 schedule-header">
           Daily Schedule of the <br />
           festival convention
+          <!-- {{pageData.data.page_title.value}} -->
         </h3>
       </div>
     </DesktopHero>
@@ -51,7 +54,7 @@
           </v-col>
           <v-col class="my-3 my-md-12" cols="12"></v-col>
           <!-- <div class="mt-md-16 pa-md-10"></div> -->
-          <v-col v-for="(schedule, index) in schedules" :key="`${index}-shedule`" cols="12" md="4">
+          <v-col v-for="(schedule, index) in schedules.data" :key="`${index}-shedule`" cols="12" md="4">
             <v-card class="mx-auto custom-card" max-width="344">
               <!-- src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" -->
               <v-img
