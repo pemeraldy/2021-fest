@@ -5,7 +5,9 @@
       :background-image="pageData.data.banner_image_desktop.value"
     >
       <div class="d-flex hero-content justify-center align-center">
-        <h1 class="white--text text-center">{{pageData.data.page_title.value}}</h1>
+        <h1 class="white--text text-center">
+          {{ pageData.data.page_title.value }}
+        </h1>
       </div>
     </MobileHero>
     <DesktopHero
@@ -25,14 +27,14 @@
       <v-container>
         <v-row>
           <v-col cols="12">
-            <h1 class="text-center">Select a Date</h1>
+            <h1 class="text-center">Select a Date {{currentDate}}</h1>
           </v-col>
           <v-col class="mb-md-12" cols="12">
             <div class="d-flex justify-center">
               <div
                 v-for="i in 5"
                 :key="i"
-                :class="[i == 1 && 'active']"
+                :class="[i == activeClassDate && 'active']"
                 class="
                   date-display
                   mx-md-5 mx-1
@@ -42,6 +44,7 @@
                   justify-space-around
                   align-center
                 "
+              @click="getSchedule(i)"
               >
                 <span class="date-display__day">Wed</span>
                 <span
@@ -54,24 +57,26 @@
           </v-col>
           <v-col class="my-3 my-md-12" cols="12"></v-col>
           <!-- <div class="mt-md-16 pa-md-10"></div> -->
-          <v-col v-for="(schedule, index) in schedules.data" :key="`${index}-shedule`" cols="12" md="4">
+          <v-col
+            v-for="(schedule, index) in schedules.data"
+            :key="`${index}-shedule`"
+            cols="12"
+            md="4"
+          >
             <v-card class="mx-auto custom-card" max-width="344">
               <!-- src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" -->
-              <v-img
-                :src="schedule.image_url"
-                height="270px"
-              ></v-img>
+              <v-img :src="schedule.image_url" height="270px"></v-img>
 
               <v-card-title class="custom-car__title">
-                {{schedule.session}}: {{schedule.time}}
+                {{ schedule.session }}: {{ schedule.time }}
               </v-card-title>
 
               <v-card-subtitle class="custom-car__subtitle my-2">
-                {{schedule.title}}
+                {{ schedule.title }}
               </v-card-subtitle>
               <v-card-text class="pb-md-14 pb-10">
                 <p>
-                  {{schedule.description}}
+                  {{ schedule.description }}
                 </p>
               </v-card-text>
             </v-card>
@@ -88,6 +93,9 @@ export default {
   layout: 'custom',
   data() {
     return {
+      startDate: 1,
+      endDate: 5,
+      activeClassDate: 1,
       // days:['Mon','Tue', 'Wed','Thur', 'Fri','Sat','Sun'],
       schedules: [
         {
@@ -109,14 +117,14 @@ export default {
   },
   async fetch() {
     const now = new Date()
-    const [month,day]  = [now.getMonth(), now.getDate()]
-    const dateNum = [month,day].join('')
+    const [month, day] = [now.getMonth(), now.getDate()]
+    const dateNum = [month, day].join('')
     const start = 1101
-     const end = 1105
+    const end = 1105
     const fetchParam = dateNum < start ? 1 : dateNum > end ? 1 : now.getDate()
     // const inceptionDate = new Date('Sat Dec 1 2021 00:00:00')
     // const currentDate = now.getDate() > inceptionDate ? now.getDate : inceptionDate
-    try {      
+    try {
       // this.schedules = await this.$axios.$get(`/api/schedule/${currentDate}`)
       this.schedules = await this.$axios.$get(`/api/schedule/${fetchParam}`)
       this.pageData = await this.$axios.$get('/api/page/schedule')
@@ -125,17 +133,26 @@ export default {
       console.log(error)
     }
   },
-  methods:{
-    async getSchedule(day){
+  computed: {
+    currentDate() {
+      const now = new Date()
+      const nowDate = now.getDate()
+      return this.startDate < nowDate ? 1 : nowDate <= this.endDate ? nowDate : 1
+    },
+  },
+  methods: {
+    async getSchedule(day) {
       try {
-        const schedules = await this.$axios.$get(`/api/schedules/${day}`)
-        this.schedules = schedules 
+        const schedules = await this.$axios.$get(`/api/schedule/${day}`)
+        this.schedules = schedules
+        this.activeClassDate = day
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error)
       }
-    }
-  }
+    },
+  },
+
 }
 </script>
 
