@@ -27,7 +27,7 @@
       <v-container>
         <v-row>
           <v-col cols="12">
-            <h1 class="text-center">Select a Date {{currentDate}}</h1>
+            <h1 class="text-center">Select a Date </h1>
           </v-col>
           <v-col class="mb-md-12" cols="12">
             <div class="d-flex justify-center">
@@ -44,16 +44,24 @@
                   justify-space-around
                   align-center
                 "
-              @click="getSchedule(i)"
+                @click="getSchedule(i)"
               >
-                <span class="date-display__day">Wed</span>
+                <span class="date-display__day">{{ days[i + 1] }}</span>
                 <span
+                v-if="activeLoader !== i"
                   class="date-display__date d-flex align-center justify-center"
                   >0{{ i }}</span
                 >
-                <span class="date-display__month">Dec</span>
+                <v-progress-circular
+                  v-else
+                  indeterminate
+                  :size="20"
+                  color="white"
+                ></v-progress-circular>
+                <span class="date-display__month">Dec</span>                
               </div>
             </div>
+            
           </v-col>
           <v-col class="my-3 my-md-12" cols="12"></v-col>
           <!-- <div class="mt-md-16 pa-md-10"></div> -->
@@ -96,7 +104,8 @@ export default {
       startDate: 1,
       endDate: 5,
       activeClassDate: 1,
-      // days:['Mon','Tue', 'Wed','Thur', 'Fri','Sat','Sun'],
+      activeLoader:0,
+      days: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
       schedules: [
         {
           image_url: 'https...',
@@ -137,22 +146,27 @@ export default {
     currentDate() {
       const now = new Date()
       const nowDate = now.getDate()
-      return this.startDate < nowDate ? 1 : nowDate <= this.endDate ? nowDate : 1
+      return this.startDate < nowDate
+        ? 1
+        : nowDate <= this.endDate
+        ? nowDate
+        : 1
     },
   },
   methods: {
     async getSchedule(day) {
+      this.activeLoader = day
       try {
         const schedules = await this.$axios.$get(`/api/schedule/${day}`)
         this.schedules = schedules
         this.activeClassDate = day
+        this.activeLoader = 0;
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error)
       }
     },
   },
-
 }
 </script>
 
