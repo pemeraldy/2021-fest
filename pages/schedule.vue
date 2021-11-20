@@ -2,7 +2,7 @@
   <div>
     <MobileHero
       class="d-md-none"
-      :background-image="pageData.data.banner_image_desktop.value"
+      :background-image="pageData.data.banner_image_mobile.value"
     >
       <div class="d-flex hero-content justify-center align-center">
         <h1 class="white--text text-center">
@@ -12,7 +12,7 @@
     </MobileHero>
     <DesktopHero
       class="d-none d-md-block"
-      :background-image="pageData.data.banner_image_mobile.value"
+      :background-image="pageData.data.banner_image_desktop.value"
     >
       <div class="d-flex hero-desk-content justify-center align-center">
         <h3 class="white--text pa-4 schedule-header">
@@ -69,7 +69,7 @@
             v-for="(schedule, index) in schedules.data"
             :key="`${index}-shedule`"
             cols="12"
-            md="4"
+            :md="`${schedules.data.length > 1 ? '4': '12'}`"
           >
             <v-card class="mx-auto custom-card" max-width="344">
               <!-- src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" -->
@@ -198,6 +198,7 @@ h3.schedule-header {
 
 /* Date Styles*/
 .date-display {
+  cursor: pointer;
   width: 157px;
   height: 292px;
   color: #fff;
