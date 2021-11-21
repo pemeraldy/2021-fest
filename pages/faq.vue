@@ -1,6 +1,9 @@
 <template>
   <div>
-    <MobileHero class="d-md-none" :background-image="pageData.data.banner_image_desktop.value">
+    <MobileHero
+      class="d-md-none"
+      :background-image="pageData.data.banner_image_desktop.value"
+    >
       <div class="d-flex hero-content justify-center align-center">
         <h3 class="white--text pa-4">
           Most frequently <br />
@@ -72,7 +75,10 @@
         </div>
       </div>
     </MobileHero>
-    <DesktopHero class="d-none d-md-block" :background-image="pageData.data.banner_image_mobile.value">
+    <DesktopHero
+      class="d-none d-md-block"
+      :background-image="pageData.data.banner_image_mobile.value"
+    >
       <div class="d-flex hero-desk-content justify-center align-center">
         <h3 class="white--text pa-4 notif-header">
           Most frequently <br />
@@ -149,15 +155,21 @@
       <v-container>
         <v-row>
           <!-- <pre>{{faqs}}</pre> -->
-          <v-col v-for="(faq, index) in faqs.data" :key="index" class="pr-md-10" cols="12" md="6">
+          <v-col
+            v-for="(faq, index) in faqs.data"
+            :key="index"
+            class="pr-md-10"
+            cols="12"
+            md="6"
+          >
             <div class="faq-container d-flex">
               <div class="bullet-container mr-4 mr-md-7">
                 <div class="bullet d-flex align-center justify-center">
-                  0{{ index+1 }}
+                  0{{ index + 1 }}
                 </div>
               </div>
               <div class="faq-content">
-                <h3 class="faq-heading">{{faq.question}}</h3>
+                <h3 class="faq-heading">{{ faq.question }}</h3>
                 <div class="faq-parag mt-5" v-html="faq.answer"></div>
                 <!-- <p class="faq-parag mt-5">
                   Urna cursus vitae, tellus placerat phasellus in. Massa, id
@@ -179,32 +191,30 @@
 export default {
   name: 'Faq',
   layout: 'custom',
-  async fetch(){
+  async fetch() {
     try {
       this.faqs = await this.$axios.$get('/api/faq')
       this.pageData = await this.$axios.$get('/api/page/faq')
     } catch (error) {
       console.log(error)
     }
-    
   },
-  data(){
+  data() {
     return {
-      faqs:[],
-      pageData:{
-        data:{
+      faqs: [],
+      pageData: {
+        data: {
           banner_image_desktop: { value: '/faq-desk.png' },
-        banner_image_mobile: { value: '/faq-mobile.png.png' },
-        page_title: { value: 'faqs' },
-        }
-      }
+          banner_image_mobile: { value: '/faq-mobile.png.png' },
+          page_title: { value: 'faqs' },
+        },
+      },
     }
   },
 }
 </script>
 
 <style lang="scss" scoped>
-
 .faq-parag ::v-deep p {
   font-size: 18px;
 }
@@ -212,13 +222,13 @@ export default {
   padding-left: 0;
   list-style: none !important;
 }
-.faq-parag ::v-deep ul li{
+.faq-parag ::v-deep ul li {
   font-size: 12px;
-  margin: 10px 0
+  margin: 10px 0;
 }
-.faq-parag ::v-deep ul li::before{
-  content: '😎';
-  font-size: 10px;
+.faq-parag ::v-deep ul li::before {
+  content: '✌️';
+  font-size: 2rem;
 }
 .svg-wrap {
   width: 200px;
@@ -245,7 +255,7 @@ h3.notif-header {
       font-size: 26px;
     }
   }
-  .faq-parag{
+  .faq-parag {
     font-size: 16px;
   }
 }

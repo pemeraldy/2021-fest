@@ -9,7 +9,7 @@
           :to="link.path"
           @click="currentLink = index"
         >
-          <span v-if="currentLink === index" class="nav-active"></span>
+          <span v-if="$route.path === link.path" class="nav-active"></span>
           {{ link.name }}</nuxt-link
         >
       </div>

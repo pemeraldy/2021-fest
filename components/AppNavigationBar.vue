@@ -77,6 +77,9 @@ export default {}
   text-decoration: none;
   font-size: 16px;
   font-weight: 600;
-  color: #000;
+  color: rgba(0, 0, 0, 0.4);
+}
+.nuxt-link-exact-active {
+  color: rgba(0, 0, 0, 1);
 }
 </style>
