@@ -165,7 +165,7 @@
             <div class="faq-container d-flex">
               <div class="bullet-container mr-4 mr-md-7">
                 <div class="bullet d-flex align-center justify-center">
-                  0{{ index + 1 }}
+                    {{ index + 1 }}
                 </div>
               </div>
               <div class="faq-content">
@@ -191,14 +191,6 @@
 export default {
   name: 'Faq',
   layout: 'custom',
-  async fetch() {
-    try {
-      this.faqs = await this.$axios.$get('/api/faq')
-      this.pageData = await this.$axios.$get('/api/page/faq')
-    } catch (error) {
-      console.log(error)
-    }
-  },
   data() {
     return {
       faqs: [],
@@ -209,6 +201,14 @@ export default {
           page_title: { value: 'faqs' },
         },
       },
+    }
+  },
+  async fetch() {
+    try {
+      this.faqs = await this.$axios.$get('/api/faq')
+      this.pageData = await this.$axios.$get('/api/page/faq')
+    } catch (error) {
+      console.log(error)
     }
   },
 }
