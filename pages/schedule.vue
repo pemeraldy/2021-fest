@@ -199,8 +199,8 @@ h3.schedule-header {
 /* Date Styles*/
 .date-display {
   cursor: pointer;
-  width: 157px;
-  height: 292px;
+  width: 92px;
+  height: 161px;
   color: #fff;
   border-radius: 85px;
   background: rgba(58, 1, 12, 0.5);
@@ -215,19 +215,19 @@ h3.schedule-header {
   );
 }
 .date-display__day {
-  font-size: 25px;
+  font-size: 20px;
 }
 .date-display__date {
-  width: 64px;
-  height: 64px;
+  width: 30px;
+  height: 30px;
   text-align: center;
-  font-size: 26px;
+  font-size: 14px;
   border-radius: 50%;
   background: #fff;
   color: #000;
 }
 .date-display__month {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 440px) {

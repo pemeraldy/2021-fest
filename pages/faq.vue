@@ -165,7 +165,7 @@
             <div class="faq-container d-flex">
               <div class="bullet-container mr-4 mr-md-7">
                 <div class="bullet d-flex align-center justify-center">
-                    {{ index + 1 }}
+                     {{ index + 1 }}
                 </div>
               </div>
               <div class="faq-content">
