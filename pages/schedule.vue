@@ -27,7 +27,7 @@
       <v-container>
         <v-row>
           <v-col cols="12">
-            <h1 class="text-center">Select a Date </h1>
+            <h1 class="text-center">Select a Date</h1>
           </v-col>
           <v-col class="mb-md-12" cols="12">
             <div class="d-flex justify-center">
@@ -48,7 +48,7 @@
               >
                 <span class="date-display__day">{{ days[i + 1] }}</span>
                 <span
-                v-if="activeLoader !== i"
+                  v-if="activeLoader !== i"
                   class="date-display__date d-flex align-center justify-center"
                   >0{{ i }}</span
                 >
@@ -58,37 +58,38 @@
                   :size="20"
                   color="white"
                 ></v-progress-circular>
-                <span class="date-display__month">Dec</span>                
+                <span class="date-display__month">Dec</span>
               </div>
             </div>
-            
           </v-col>
           <v-col class="my-3 my-md-12" cols="12"></v-col>
           <!-- <div class="mt-md-16 pa-md-10"></div> -->
-          <v-col
-            v-for="(schedule, index) in schedules.data"
-            :key="`${index}-shedule`"
-            cols="12"
-            :md="`${schedules.data.length > 1 ? '4': '12'}`"
-          >
-            <v-card class="mx-auto custom-card" max-width="344">
-              <!-- src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" -->
-              <v-img :src="schedule.image_url" height="270px"></v-img>
+          <v-slide-y-transition group>
+            <v-col
+              v-for="(schedule, index) in schedules.data"
+              :key="`${index}-shedule`"
+              cols="12"
+              :md="`${schedules.data.length > 1 ? '4' : '12'}`"
+            >
+              <v-card class="mx-auto custom-card" max-width="344">
+                <!-- src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" -->
+                <v-img :src="schedule.image_url" height="270px"></v-img>
 
-              <v-card-title class="custom-car__title">
-                {{ schedule.session }}: {{ schedule.time }}
-              </v-card-title>
+                <v-card-title class="custom-car__title">
+                  {{ schedule.session }}: {{ schedule.time }}
+                </v-card-title>
 
-              <v-card-subtitle class="custom-car__subtitle my-2">
-                {{ schedule.title }}
-              </v-card-subtitle>
-              <v-card-text class="pb-md-14 pb-10">
-                <p>
-                  {{ schedule.description }}
-                </p>
-              </v-card-text>
-            </v-card>
-          </v-col>
+                <v-card-subtitle class="custom-car__subtitle my-2">
+                  {{ schedule.title }}
+                </v-card-subtitle>
+                <v-card-text class="pb-md-14 pb-10">
+                  <p>
+                    {{ schedule.description }}
+                  </p>
+                </v-card-text>
+              </v-card>
+            </v-col>
+          </v-slide-y-transition>
         </v-row>
       </v-container>
     </div>
@@ -104,7 +105,7 @@ export default {
       startDate: 1,
       endDate: 5,
       activeClassDate: 1,
-      activeLoader:0,
+      activeLoader: 0,
       days: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
       schedules: [
         {
@@ -160,7 +161,7 @@ export default {
         const schedules = await this.$axios.$get(`/api/schedule/${day}`)
         this.schedules = schedules
         this.activeClassDate = day
-        this.activeLoader = 0;
+        this.activeLoader = 0
       } catch (error) {
         // eslint-disable-next-line no-console
         console.log(error)

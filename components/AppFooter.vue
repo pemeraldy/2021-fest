@@ -2,22 +2,22 @@
   <v-sheet color="black" class="main-footer pa-5" min-height="368">
     <div class="icons-wrap my-5 mt-md-16">
       <v-row justify="space-around">
-        <v-btn class="mr-5 ml-3 ml-md-0 mr-md-0" icon>
+        <!-- <v-btn href="https://t.me/officialayoajani" class="mr-5 ml-3 ml-md-0 mr-md-0" icon>
           <v-avatar width="32" height="32">
-            <img src="~/assets/imgs/twitter.svg" alt="twitter" />
+            <img src="~/assets/imgs/telegram.png" alt="telegram" />
           </v-avatar>
-        </v-btn>
-        <v-btn class="mr-5 mr-md-0" icon>
+        </v-btn> -->
+        <v-btn href="https://www.instagram.com/petrachristiancentre/" class="mr-5 mr-md-0" icon>
           <v-avatar width="32" height="32">
             <img src="~/assets/imgs/instagram.svg" alt="instagram" />
           </v-avatar>
         </v-btn>
-        <v-btn class="mr-5 mr-md-0" icon>
+        <v-btn href="https://web.facebook.com/petrachristiancentre" class="mr-5 mr-md-0" icon>
           <v-avatar width="32" height="32">
             <img src="~/assets/imgs/facebook.svg" alt="facebook" />
           </v-avatar>
         </v-btn>
-        <v-btn icon>
+        <v-btn href="mailto:thefestival@petracc.org" icon>
           <v-avatar width="32" height="32">
             <img src="~/assets/imgs/email.svg" alt="email" />
           </v-avatar>

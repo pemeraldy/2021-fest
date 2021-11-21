@@ -27,13 +27,13 @@ export default {
           name: 'Register',
           path: '/auth/register',
         },
-        // {
-        //   name: 'Schedule',
-        //   path: '/',
-        // },
+        {
+          name: 'Schedule',
+          path: '/schedule',
+        },
         {
           name: 'FAQ',
-          path: '/',
+          path: '/faq',
         },
         // {
         //   name: 'Invite Someone',
