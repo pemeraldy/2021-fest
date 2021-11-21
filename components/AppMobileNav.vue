@@ -35,7 +35,7 @@
     </div>
     <div class="custom-drawe__placeholder">
       <v-expand-transition>
-        <CustomDrawer v-if="navOpen" />
+        <CustomDrawer v-if="navOpen" @close="closeDrawer" />
       </v-expand-transition>
     </div>
   </div>
@@ -49,6 +49,11 @@ export default {
       navOpen: false,
     }
   },
+  methods:{
+    closeDrawer(){      
+      this.navOpen = false
+    }
+  }
 }
 </script>
 

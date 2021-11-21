@@ -7,7 +7,8 @@
           :key="index"
           class="my-3"
           :to="link.path"
-          @click="currentLink = index"
+          tag="a"
+          @click.native="closeMenu"
         >
           <span v-if="$route.path === link.path" class="nav-active"></span>
           {{ link.name }}</nuxt-link
@@ -59,6 +60,11 @@ export default {
       isActive: false,
     }
   },
+  methods:{
+    closeMenu(){
+      this.$emit('close')
+    }
+  }
 }
 </script>
 
