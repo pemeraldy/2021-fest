@@ -16,7 +16,7 @@
     >
       <div class="d-flex hero-desk-content justify-center align-center">
         <h3 class="white--text pa-4 schedule-header">
-          Daily Schedule of the <br />
+          Testimonnies from the <br />
           festival convention
           <!-- {{pageData.data.page_title.value}} -->
         </h3>
