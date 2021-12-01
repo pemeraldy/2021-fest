@@ -30,40 +30,24 @@
 
           <v-col class="d-flex justify-center" cols="12" md="4">
             <v-carousel v-model="model" height="1000" hide-delimiters>
-              <v-carousel-item v-for="i in 3" :key="i">
+              <v-carousel-item v-for="i in ministers" :key="i.name">
                 <v-card class="mx-auto ministers-bio__card" max-width="344">
                   <v-img
-                    src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                    height="230px"
+                    :src="i.photo_mobile"
+                    height="400px"
                   ></v-img>
 
-                  <v-card-title> Bishop Francis Wale Oke </v-card-title>
+                  <v-card-title> {{i.name}} </v-card-title>
 
                   <v-card-subtitle>
-                    Head Pastor, Petra Christian Centre
+                    {{i.title}}
                   </v-card-subtitle>
                   <v-expand-transition>
                     <div v-show="show">
                       <v-divider></v-divider>
 
                       <v-card-text>
-                        Bishop Francis Wale Oke is the President and founder of
-                        The Sword of The Spirit Ministries International with
-                        the Headquarters located in Ibadan City, Oyo State,
-                        Nigeria. For over thirty years he has conducted mass
-                        crusades all over Nigeria with crowds of thousands of
-                        people in a single service. He also conducts a prayer
-                        and intercession programme at the Federal Capital
-                        Territory Abuja Nigeria tagged The Nigeria Turning
-                        Point, this programme has brought millions of people
-                        together to pray for the peace and prosperity of
-                        Nigeria. In 1989, Bishop Francis Wale Oke founded the
-                        Christ Life Church which has grown exponentially having
-                        over two hundred branches located all over Nigeria. He
-                        hosts the Annual Holy Ghost Convention through which
-                        multitudes have been transformed, many ministries have
-                        been born and imparted to the glory of God. He is
-                        married to Victoria and they are blessed with children.
+                        {{i.bio}}
                       </v-card-text>
                     </div>
                   </v-expand-transition>
