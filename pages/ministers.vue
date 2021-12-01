@@ -25,11 +25,11 @@
 
     <div class="my-16">
       <v-container>
-        <v-row>
+        <v-row class="d-md-none">
           <v-col class="d-flex justify-center" cols="12" md="4"></v-col>
 
           <v-col class="d-flex justify-center" cols="12" md="4">
-            <v-carousel v-model="model"  height="600" hide-delimiters>
+            <v-carousel v-model="model" height="1000" hide-delimiters>
               <v-carousel-item v-for="i in 3" :key="i">
                 <v-card class="mx-auto ministers-bio__card" max-width="344">
                   <v-img
@@ -39,7 +39,9 @@
 
                   <v-card-title> Bishop Francis Wale Oke </v-card-title>
 
-                  <v-card-subtitle> Head Pastor, Petra Christian Centre </v-card-subtitle>
+                  <v-card-subtitle>
+                    Head Pastor, Petra Christian Centre
+                  </v-card-subtitle>
                   <v-expand-transition>
                     <div v-show="show">
                       <v-divider></v-divider>
@@ -71,6 +73,31 @@
           </v-col>
           <v-col class="d-flex justify-center" cols="12" md="4"></v-col>
         </v-row>
+        <v-row class="d-none d-md-flex justify-center">
+          <v-col v-for="min in ministers" :key="min.name" cols="12" md="6">
+            <v-card class="mx-auto ministers-bio__card" max-width="344">
+              <v-img
+                :src="min.photo_desktop"
+                height="400px"
+              ></v-img>
+
+              <v-card-title> {{min.name}} </v-card-title>
+
+              <v-card-subtitle>
+                {{min.title}}
+              </v-card-subtitle>
+              <v-expand-transition>
+                <div v-show="show">
+                  <v-divider></v-divider>
+
+                  <v-card-text>
+                    {{min.bio}}
+                  </v-card-text>
+                </div>
+              </v-expand-transition>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-container>
     </div>
   </div>
@@ -92,11 +119,14 @@ export default {
           page_title: { value: 'faqs' },
         },
       },
+      ministers: [],
     }
   },
   async fetch() {
     try {
       this.pageData = await this.$axios.$get('/api/page/schedule')
+      const resp = await this.$axios.$get('/api/minister')
+      this.ministers = await resp.data
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log(error)
@@ -111,10 +141,12 @@ export default {
 }
 .ministers-bio__card.v-application--is-ltr .v-window__next,
 .v-window__next {
+  position: absolute;
   top: 121px !important;
 }
 .v-window__prev,
 .v-window__next {
+  position: absolute;
   top: 121px !important;
 }
 .hero-desk-content {

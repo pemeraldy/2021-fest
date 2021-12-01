@@ -130,14 +130,6 @@ export default {
       ministers:[]
     }
   },
-  computed:{
-    firstRow(){
-      return this.ministers.slice(0,3)
-    },
-    secondRow(){
-      return this.ministers.slice(3)
-    },
-  },
   async fetch(){
     try {
       const resp = await this.$axios.$get('/api/minister')
@@ -145,6 +137,14 @@ export default {
     } catch (error) {
       
     }
+  },
+  computed:{
+    firstRow(){
+      return this.ministers.slice(0,3)
+    },
+    secondRow(){
+      return this.ministers.slice(3)
+    },
   },
   created(){
 
