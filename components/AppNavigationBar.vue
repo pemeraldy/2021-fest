@@ -25,14 +25,14 @@
          <nuxt-link class="custom-nav-item pa-3 mx-2" to="/faq"
           >FAQs</nuxt-link
         >
+         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/ministers"
+          >Ministers</nuxt-link
+        >
         <!--
          <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Invite someone</nuxt-link
         > 
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/faq">FAQs</nuxt-link>
-         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
-          >Ministers</nuxt-link
-        >
         <nuxt-link class="custom-nav-item pa-3 mx-2" to="/"
           >Media</nuxt-link
         >

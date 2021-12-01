@@ -53,7 +53,7 @@
       <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Media</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
-      <nuxt-link class="my-2 mx-md-10" to="/">Ministers</nuxt-link>
+      <nuxt-link class="my-2 mx-md-10" to="/ministers">Ministers</nuxt-link>
       <v-divider class="d-md-none" dark></v-divider>
       <nuxt-link class="my-2 mx-md-10" to="/">Testimonies</nuxt-link>
     </div>

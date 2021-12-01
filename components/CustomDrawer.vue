@@ -44,10 +44,10 @@ export default {
         //   name: 'Media',
         //   path: '/',
         // },
-        // {
-        //   name: 'Ministers',
-        //   path: '/',
-        // },
+        {
+          name: 'Ministers',
+          path: '/ministers',
+        },
         // {
         //   name: 'Testimonies',
         //   path: '/',
